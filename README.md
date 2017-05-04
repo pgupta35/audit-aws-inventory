@@ -99,7 +99,7 @@ This repo is designed to work with CloudCoreo. It will perform AWS inventory and
 1. Inventory
 
 ## Categories
-1. _Audit_Recommended
+1. AWS Audit Policies
 
 
 
