@@ -108,5 +108,5 @@ This repo is designed to work with CloudCoreo. It will perform AWS inventory and
 
 
 ## Icon
-
+![icon](https://raw.githubusercontent.com/CloudCoreo/audit-aws-inventory/master/images/icon.png "icon")
 
