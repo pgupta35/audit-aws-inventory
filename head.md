@@ -1,3 +1,3 @@
-audit RDS
+audit Inventory
 ============================
-This stack will monitor RDS and alert on things CloudCoreo developers think are violations of best practices
+This composite performs inventory on your AWS cloud objects
