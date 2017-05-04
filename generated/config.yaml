@@ -1,5 +1,0 @@
-variables:
-    AUDIT_AWS_INVENTORY_ALERT_LIST:
-        required: false
-        type: array
-        default:
