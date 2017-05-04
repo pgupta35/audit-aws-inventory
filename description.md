@@ -1,1 +1,1 @@
-This repo is designed to work with CloudCoreo. It will perform AWS inventory and send a report to the email address designated by the config.yaml AUDIT_AWS_INVENTORY_ALERT_RECIPIENT value
+This composite scans AWS services and reports on the inventory of objects found
