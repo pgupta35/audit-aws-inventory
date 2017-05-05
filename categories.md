@@ -1,2 +1,2 @@
-1. AWS Inventory
+1. AWS Audit Policies
 
