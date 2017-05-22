@@ -94,7 +94,7 @@ This composite scans AWS services and reports on the inventory of objects found
 1. Inventory
 
 ## Categories
-1. AWS Audit Policies
+1. AWS Inventory
 
 
 
