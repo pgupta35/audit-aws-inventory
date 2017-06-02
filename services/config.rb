@@ -217,10 +217,10 @@ const compositeName = json_input.compositeName;
 const planName = json_input.planName;
 const cloudAccount = json_input.cloudAccountName;
 const cloudObjects = json_input.violations;
-const NO_OWNER_EMAIL = "${AUDIT_AWS_ALERT_RECIPIENT}";
-const OWNER_TAG = "${AUDIT_AWS_OWNER_TAG}";
-const ALLOW_EMPTY = "${AUDIT_AWS_ALLOW_EMPTY}";
-const SEND_ON = "${AUDIT_AWS_SEND_ON}";
+const NO_OWNER_EMAIL = "${AUDIT_AWS_INVENTORY_ALERT_RECIPIENT}";
+const OWNER_TAG = "${AUDIT_AWS_INVENTORY_OWNER_TAG}";
+const ALLOW_EMPTY = "${AUDIT_AWS_INVENTORY_ALLOW_EMPTY}";
+const SEND_ON = "${AUDIT_AWS_INVENTORY_SEND_ON}";
 let cloudtrailAlertListToJSON = "${AUDIT_AWS_CLOUDTRAIL_ALERT_LIST}";
 let redshiftAlertListToJSON = "${AUDIT_AWS_REDSHIFT_ALERT_LIST}";
 let rdsAlertListToJSON = "${AUDIT_AWS_RDS_ALERT_LIST}";
@@ -342,12 +342,12 @@ callback(textRollup);
 end
 
 coreo_uni_util_notify "advise-aws-to-tag-values" do
-  action((("${AUDIT_AWS_ALERT_RECIPIENT}".length > 0)) ? :notify : :nothing)
+  action((("${AUDIT_AWS_INVENTORY_ALERT_RECIPIENT}".length > 0)) ? :notify : :nothing)
   notifiers 'COMPOSITE::coreo_uni_util_jsrunner.tags-to-notifiers-array-aws.return'
 end
 
 coreo_uni_util_notify "advise-aws-rollup" do
-  action((("${AUDIT_AWS_ALERT_RECIPIENT}".length > 0) and (! "${AUDIT_AWS_OWNER_TAG}".eql?("NOT_A_TAG"))) ? :notify : :nothing)
+  action((("${AUDIT_AWS_INVENTORY_ALERT_RECIPIENT}".length > 0) and (! "${AUDIT_AWS_INVENTORY_OWNER_TAG}".eql?("NOT_A_TAG"))) ? :notify : :nothing)
   type 'email'
   allow_empty true
   send_on 'always'
@@ -358,6 +358,6 @@ COMPOSITE::coreo_uni_util_jsrunner.tags-rollup-aws.return
   '
   payload_type 'text'
   endpoint ({
-      :to => '${AUDIT_AWS_ALERT_RECIPIENT}', :subject => 'CloudCoreo aws rule results on PLAN::stack_name :: PLAN::name'
+      :to => '${AUDIT_AWS_INVENTORY_ALERT_RECIPIENT}', :subject => 'CloudCoreo aws rule results on PLAN::stack_name :: PLAN::name'
   })
 end
