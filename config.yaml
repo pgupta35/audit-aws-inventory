@@ -1,4 +1,3 @@
----
 variables:
   AUDIT_AWS_INVENTORY_ALERT_RECIPIENT:
     description: Enter the email address(es) that will receive notifications. If more
