@@ -2,6 +2,48 @@
 require 'aws-sdk'
 require 'nokogiri'
 require 'open-uri'
+require 'yaml'
+
+@yaml_doc = { 'variables' => {} }
+
+def get_regions
+  @ec2_regions =  Aws::EC2::Client.new.describe_regions().regions.collect { |x| x.region_name }.sort
+  return @ec2_regions
+end
+
+def addVariableToYaml(name, description=nil, required=nil, type=nil, default=nil)
+
+  @yaml_doc['variables'][name] = {}
+  @yaml_doc['variables'][name]['description'] = description unless description.nil?
+  @yaml_doc['variables'][name]['required'] = required unless required.nil?
+  @yaml_doc['variables'][name]['type'] = type unless type.nil?
+  @yaml_doc['variables'][name]['default'] = default unless default.nil?
+
+end
+addVariableToYaml('AUDIT_AWS_INVENTORY_ALERT_RECIPIENT',
+                  "Enter the email address(es) that will receive notifications. If more than one, separate each with a comma.",
+                  false,
+                  "string")
+addVariableToYaml('AUDIT_AWS_INVENTORY_ALLOW_EMPTY',
+                  "Would you like to receive empty reports? Options - true / false. Default is false.",
+                  true,
+                  "string",
+                  false)
+addVariableToYaml('AUDIT_AWS_INVENTORY_SEND_ON',
+                  "Send reports always or only when there is a change? Options - always / change. Default is change.",
+                  true,
+                  "string",
+                  "change")
+addVariableToYaml('AUDIT_AWS_INVENTORY_OWNER_TAG',
+                  "Enter an AWS tag whose value is an email address of the owner of the AWS services being audited. (Optional)",
+                  true,
+                  "string",
+                  "NOT_A_TAG")
+addVariableToYaml('AUDIT_AWS_INVENTORY_REGIONS',
+                  "List of AWS regions to check. Default is all regions. Choices are #{get_regions.join(',')}",
+                  true,
+                  "array",
+                  get_regions)
 
 def writeLine(line)
   open('./services/config.rb', 'a') { |f|
@@ -31,7 +73,7 @@ def get_id_from_possibilities(possible_ids)
     }
   }
   return "NA" if found_possibilities.size.eql?(0)
-  sorted_possibilities = found_possibilities.sort_by{ | x| x.count('.') }
+  sorted_possibilities = found_possibilities.sort_by { |x| x.count('.') }
   search.each { |s|
     sorted_possibilities.each { |pid|
       if pid =~ s
@@ -94,6 +136,7 @@ Aws.partition('aws').services.each do |s|
       #writeLine "    method #{r} requires args"
     end
   }
+  break
 end
 
 @id_map.each_pair { |s, inv_hash|
@@ -125,12 +168,20 @@ coreo_aws_rule "#{rule_name}" do
 end
     EOH
   }
-  writeLine <<-EOH
 
+  addVariableToYaml('AUDIT_AWS_#{service.upcase}_ALERT_LIST',
+                    "Which rules would you like to run? Possible values are #{service_rules.join(',')}",
+                    false,
+                    "array",
+                    service_rules)
+
+  writeLine <<-EOH
+  
 coreo_aws_rule_runner "#{service.downcase}-inventory-runner" do
   action :run
   service :#{service}
-  rules #{service_rules}
+  rules ${AUDIT_AWS_#{service.upcase}_ALERT_LIST}
 end
   EOH
 }
+::File.write('./config.yaml', @yaml_doc.to_yaml)
