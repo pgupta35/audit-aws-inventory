@@ -169,7 +169,7 @@ end
     EOH
   }
 
-  addVariableToYaml('AUDIT_AWS_#{service.upcase}_ALERT_LIST',
+  addVariableToYaml("AUDIT_AWS_#{service.upcase}_ALERT_LIST",
                     "Which rules would you like to run? Possible values are #{service_rules.join(',')}",
                     false,
                     "array",
