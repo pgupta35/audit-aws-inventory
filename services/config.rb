@@ -12,6 +12,8 @@
 # - get_rest_apis
 # - id: items.id
 # - get_sdk_types
+# - id: items.id
+# - get_usage_plans
 # AppStream
 # - id: fleets.arn
 # - describe_fleets
@@ -199,6 +201,8 @@
 # - id: streams.stream_arn
 # - list_streams
 # EC2
+# - id: account_attributes.attribute_name
+# - describe_account_attributes
 # - id: images.image_id
 # - describe_images
 # - id: addresses.instance_id
@@ -252,30 +256,30 @@
 # - describe_regions
 # - id: reserved_instances.reserved_instances_id
 # - describe_reserved_instances
-# - id: reserved_instances_modifications.reserved_instances_modification_id
-# - describe_reserved_instances_modifications
 # - id: reserved_instances_offerings.reserved_instances_offering_id
 # - describe_reserved_instances_offerings
-# - id: route_tables.route_table_id
-# - describe_route_tables
-# - id: scheduled_instance_set.scheduled_instance_id
-# - describe_scheduled_instances
-# - id: security_groups.owner_id
-# - describe_security_groups
-# - id: spot_instance_requests.launch_specification.iam_instance_profile.arn
-# - describe_spot_instance_requests
 # - id: export_tasks.export_task_id
 # - describe_export_tasks
-# - id: volumes.volume_id
-# - describe_volumes
+# - id: scheduled_instance_set.scheduled_instance_id
+# - describe_scheduled_instances
+# - id: route_tables.route_table_id
+# - describe_route_tables
+# - id: reserved_instances_modifications.reserved_instances_modification_id
+# - describe_reserved_instances_modifications
+# - id: security_groups.owner_id
+# - describe_security_groups
 # - id: spot_fleet_request_configs.spot_fleet_request_config.launch_specifications.iam_instance_profile.arn
 # - describe_spot_fleet_requests
-# - id: snapshots.snapshot_id
-# - describe_snapshots
 # - id: subnets.subnet_id
 # - describe_subnets
 # - id: volume_statuses.volume_id
 # - describe_volume_status
+# - id: spot_instance_requests.launch_specification.iam_instance_profile.arn
+# - describe_spot_instance_requests
+# - id: volumes.volume_id
+# - describe_volumes
+# - id: snapshots.snapshot_id
+# - describe_snapshots
 # - id: volumes_modifications.volume_id
 # - describe_volumes_modifications
 # - id: vpc_endpoints.vpc_endpoint_id
@@ -289,8 +293,6 @@
 # - describe_vpn_gateways
 # - id: vpn_connections.vpn_connection_id
 # - describe_vpn_connections
-# - id: account_attributes.attribute_name
-# - describe_account_attributes
 # ECR
 # - id: repositories.repository_arn
 # - describe_repositories
@@ -396,20 +398,20 @@
 # - list_mfa_devices
 # - id: roles.arn
 # - list_roles
+# - id: ssh_public_keys.ssh_public_key_id
+# - list_ssh_public_keys
 # - id: saml_provider_list.arn
 # - list_saml_providers
 # - id: server_certificate_metadata_list.arn
 # - list_server_certificates
 # - id: service_specific_credentials.service_specific_credential_id
 # - list_service_specific_credentials
-# - id: ssh_public_keys.ssh_public_key_id
-# - list_ssh_public_keys
 # - id: certificates.certificate_id
 # - list_signing_certificates
-# - id: virtual_mfa_devices.user.arn
-# - list_virtual_mfa_devices
 # - id: groups.arn
 # - list_groups
+# - id: virtual_mfa_devices.user.arn
+# - list_virtual_mfa_devices
 # - id: users.arn
 # - list_users
 # ImportExport
@@ -502,12 +504,12 @@
 # MarketplaceEntitlementService
 # MarketplaceMetering
 # OpsWorks
-# - id: stacks.arn
-# - describe_stacks
 # - id: service_errors.service_error_id
 # - describe_service_errors
 # - id: user_profiles.iam_user_arn
 # - describe_user_profiles
+# - id: stacks.arn
+# - describe_stacks
 # OpsWorksCM
 # - describe_account_attributes
 # - id: backups.backup_arn
@@ -522,6 +524,22 @@
 # - id: lexicons.attributes.lexicon_arn
 # - list_lexicons
 # RDS
+# - describe_pending_maintenance_actions
+# - id: reserved_db_instances.reserved_db_instance_arn
+# - describe_reserved_db_instances
+# - id: reserved_db_instances_offerings.reserved_db_instances_offering_id
+# - describe_reserved_db_instances_offerings
+# - id: source_regions.region_name
+# - describe_source_regions
+# - id: account_quotas.account_quota_name
+# - describe_account_attributes
+# - id: certificates.certificate_arn
+# - describe_certificates
+# - describe_event_categories
+# - id: event_subscriptions_list.sns_topic_arn
+# - describe_event_subscriptions
+# - id: events.source_arn
+# - describe_events
 # - id: db_cluster_parameter_groups.db_cluster_parameter_group_arn
 # - describe_db_cluster_parameter_groups
 # - id: db_cluster_snapshots.db_cluster_snapshot_arn
@@ -542,22 +560,6 @@
 # - describe_db_subnet_groups
 # - id: option_groups_list.option_group_arn
 # - describe_option_groups
-# - describe_pending_maintenance_actions
-# - id: reserved_db_instances.reserved_db_instance_arn
-# - describe_reserved_db_instances
-# - id: reserved_db_instances_offerings.reserved_db_instances_offering_id
-# - describe_reserved_db_instances_offerings
-# - id: source_regions.region_name
-# - describe_source_regions
-# - id: account_quotas.account_quota_name
-# - describe_account_attributes
-# - id: certificates.certificate_arn
-# - describe_certificates
-# - describe_event_categories
-# - id: event_subscriptions_list.sns_topic_arn
-# - describe_event_subscriptions
-# - id: events.source_arn
-# - describe_events
 # Redshift
 # - id: event_categories_map_list.events.event_id
 # - describe_event_categories
@@ -638,14 +640,6 @@
 # SQS
 # - list_queues
 # SSM
-# - id: window_identities.window_id
-# - describe_maintenance_windows
-# - id: parameters.key_id
-# - describe_parameters
-# - id: baseline_identities.baseline_id
-# - describe_patch_baselines
-# - id: mappings.baseline_identity.baseline_id
-# - describe_patch_groups
 # - id: associations.instance_id
 # - list_associations
 # - id: command_invocations.notification_config.notification_arn
@@ -659,6 +653,14 @@
 # - describe_automation_executions
 # - id: patches.id
 # - describe_available_patches
+# - id: window_identities.window_id
+# - describe_maintenance_windows
+# - id: parameters.key_id
+# - describe_parameters
+# - id: baseline_identities.baseline_id
+# - describe_patch_baselines
+# - id: mappings.baseline_identity.baseline_id
+# - describe_patch_groups
 # STS
 # SWF
 # ServiceCatalog
@@ -738,6 +740,7 @@
 # XRay
 coreo_aws_rule "acm-inventory-certificates" do
   service :ACM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ACM Inventory"
@@ -759,6 +762,7 @@ coreo_aws_rule_runner "acm-inventory-runner" do
 end
 coreo_aws_rule "apigateway-inventory-api_keys" do
   service :APIGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "APIGateway Inventory"
@@ -774,6 +778,7 @@ coreo_aws_rule "apigateway-inventory-api_keys" do
 end
 coreo_aws_rule "apigateway-inventory-client_certificates" do
   service :APIGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "APIGateway Inventory"
@@ -789,6 +794,7 @@ coreo_aws_rule "apigateway-inventory-client_certificates" do
 end
 coreo_aws_rule "apigateway-inventory-domain_names" do
   service :APIGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "APIGateway Inventory"
@@ -804,6 +810,7 @@ coreo_aws_rule "apigateway-inventory-domain_names" do
 end
 coreo_aws_rule "apigateway-inventory-rest_apis" do
   service :APIGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "APIGateway Inventory"
@@ -819,6 +826,7 @@ coreo_aws_rule "apigateway-inventory-rest_apis" do
 end
 coreo_aws_rule "apigateway-inventory-sdk_types" do
   service :APIGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "APIGateway Inventory"
@@ -832,14 +840,31 @@ coreo_aws_rule "apigateway-inventory-sdk_types" do
   raise_when [//]
   id_map ["items.id"]
 end
+coreo_aws_rule "apigateway-inventory-usage_plans" do
+  service :APIGateway
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "APIGateway Inventory"
+  description "This rule performs an inventory on the APIGateway service using the get_usage_plans function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["get_usage_plans"]
+  audit_objects ["items.id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["items.id"]
+end
 
 coreo_aws_rule_runner "apigateway-inventory-runner" do
   action :run
   service :APIGateway
-  rules ["apigateway-inventory-api_keys", "apigateway-inventory-client_certificates", "apigateway-inventory-domain_names", "apigateway-inventory-rest_apis", "apigateway-inventory-sdk_types"]
+  rules ["apigateway-inventory-api_keys", "apigateway-inventory-client_certificates", "apigateway-inventory-domain_names", "apigateway-inventory-rest_apis", "apigateway-inventory-sdk_types", "apigateway-inventory-usage_plans"]
 end
 coreo_aws_rule "appstream-inventory-fleets" do
   service :AppStream
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AppStream Inventory"
@@ -855,6 +880,7 @@ coreo_aws_rule "appstream-inventory-fleets" do
 end
 coreo_aws_rule "appstream-inventory-images" do
   service :AppStream
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AppStream Inventory"
@@ -870,6 +896,7 @@ coreo_aws_rule "appstream-inventory-images" do
 end
 coreo_aws_rule "appstream-inventory-stacks" do
   service :AppStream
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AppStream Inventory"
@@ -889,44 +916,15 @@ coreo_aws_rule_runner "appstream-inventory-runner" do
   service :AppStream
   rules ["appstream-inventory-fleets", "appstream-inventory-images", "appstream-inventory-stacks"]
 end
-coreo_aws_rule "athena-inventory-named_queries" do
-  service :Athena
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Athena Inventory"
-  description "This rule performs an inventory on the Athena service using the list_named_queries function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_named_queries"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "athena-inventory-query_executions" do
-  service :Athena
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Athena Inventory"
-  description "This rule performs an inventory on the Athena service using the list_query_executions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_query_executions"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "athena-inventory-runner" do
   action :run
   service :Athena
-  rules ["athena-inventory-named_queries", "athena-inventory-query_executions"]
+  rules []
 end
 coreo_aws_rule "autoscaling-inventory-scaling_activities" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -940,38 +938,9 @@ coreo_aws_rule "autoscaling-inventory-scaling_activities" do
   raise_when [//]
   id_map ["activities.activity_id"]
 end
-coreo_aws_rule "autoscaling-inventory-account_limits" do
-  service :AutoScaling
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "AutoScaling Inventory"
-  description "This rule performs an inventory on the AutoScaling service using the describe_account_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_account_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "autoscaling-inventory-adjustment_types" do
-  service :AutoScaling
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "AutoScaling Inventory"
-  description "This rule performs an inventory on the AutoScaling service using the describe_adjustment_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_adjustment_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "autoscaling-inventory-auto_scaling_groups" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -987,6 +956,7 @@ coreo_aws_rule "autoscaling-inventory-auto_scaling_groups" do
 end
 coreo_aws_rule "autoscaling-inventory-auto_scaling_instances" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -1000,23 +970,9 @@ coreo_aws_rule "autoscaling-inventory-auto_scaling_instances" do
   raise_when [//]
   id_map ["auto_scaling_instances.instance_id"]
 end
-coreo_aws_rule "autoscaling-inventory-auto_scaling_notification_types" do
-  service :AutoScaling
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "AutoScaling Inventory"
-  description "This rule performs an inventory on the AutoScaling service using the describe_auto_scaling_notification_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_auto_scaling_notification_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "autoscaling-inventory-launch_configurations" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -1030,38 +986,9 @@ coreo_aws_rule "autoscaling-inventory-launch_configurations" do
   raise_when [//]
   id_map ["launch_configurations.launch_configuration_arn"]
 end
-coreo_aws_rule "autoscaling-inventory-lifecycle_hook_types" do
-  service :AutoScaling
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "AutoScaling Inventory"
-  description "This rule performs an inventory on the AutoScaling service using the describe_lifecycle_hook_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_lifecycle_hook_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "autoscaling-inventory-metric_collection_types" do
-  service :AutoScaling
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "AutoScaling Inventory"
-  description "This rule performs an inventory on the AutoScaling service using the describe_metric_collection_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_metric_collection_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "autoscaling-inventory-notification_configurations" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -1077,6 +1004,7 @@ coreo_aws_rule "autoscaling-inventory-notification_configurations" do
 end
 coreo_aws_rule "autoscaling-inventory-policies" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -1092,6 +1020,7 @@ coreo_aws_rule "autoscaling-inventory-policies" do
 end
 coreo_aws_rule "autoscaling-inventory-scaling_process_types" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -1107,6 +1036,7 @@ coreo_aws_rule "autoscaling-inventory-scaling_process_types" do
 end
 coreo_aws_rule "autoscaling-inventory-scheduled_actions" do
   service :AutoScaling
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "AutoScaling Inventory"
@@ -1120,29 +1050,15 @@ coreo_aws_rule "autoscaling-inventory-scheduled_actions" do
   raise_when [//]
   id_map ["scheduled_update_group_actions.scheduled_action_arn"]
 end
-coreo_aws_rule "autoscaling-inventory-termination_policy_types" do
-  service :AutoScaling
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "AutoScaling Inventory"
-  description "This rule performs an inventory on the AutoScaling service using the describe_termination_policy_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_termination_policy_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "autoscaling-inventory-runner" do
   action :run
   service :AutoScaling
-  rules ["autoscaling-inventory-scaling_activities", "autoscaling-inventory-account_limits", "autoscaling-inventory-adjustment_types", "autoscaling-inventory-auto_scaling_groups", "autoscaling-inventory-auto_scaling_instances", "autoscaling-inventory-auto_scaling_notification_types", "autoscaling-inventory-launch_configurations", "autoscaling-inventory-lifecycle_hook_types", "autoscaling-inventory-metric_collection_types", "autoscaling-inventory-notification_configurations", "autoscaling-inventory-policies", "autoscaling-inventory-scaling_process_types", "autoscaling-inventory-scheduled_actions", "autoscaling-inventory-termination_policy_types"]
+  rules ["autoscaling-inventory-scaling_activities", "autoscaling-inventory-auto_scaling_groups", "autoscaling-inventory-auto_scaling_instances", "autoscaling-inventory-launch_configurations", "autoscaling-inventory-notification_configurations", "autoscaling-inventory-policies", "autoscaling-inventory-scaling_process_types", "autoscaling-inventory-scheduled_actions"]
 end
 coreo_aws_rule "batch-inventory-compute_environments" do
   service :Batch
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Batch Inventory"
@@ -1158,6 +1074,7 @@ coreo_aws_rule "batch-inventory-compute_environments" do
 end
 coreo_aws_rule "batch-inventory-job_definitions" do
   service :Batch
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Batch Inventory"
@@ -1173,6 +1090,7 @@ coreo_aws_rule "batch-inventory-job_definitions" do
 end
 coreo_aws_rule "batch-inventory-job_queues" do
   service :Batch
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Batch Inventory"
@@ -1192,23 +1110,9 @@ coreo_aws_rule_runner "batch-inventory-runner" do
   service :Batch
   rules ["batch-inventory-compute_environments", "batch-inventory-job_definitions", "batch-inventory-job_queues"]
 end
-coreo_aws_rule "clouddirectory-inventory-development_schema_arns" do
-  service :CloudDirectory
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudDirectory Inventory"
-  description "This rule performs an inventory on the CloudDirectory service using the list_development_schema_arns function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_development_schema_arns"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "clouddirectory-inventory-directories" do
   service :CloudDirectory
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudDirectory Inventory"
@@ -1222,29 +1126,15 @@ coreo_aws_rule "clouddirectory-inventory-directories" do
   raise_when [//]
   id_map ["directories.directory_arn"]
 end
-coreo_aws_rule "clouddirectory-inventory-published_schema_arns" do
-  service :CloudDirectory
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudDirectory Inventory"
-  description "This rule performs an inventory on the CloudDirectory service using the list_published_schema_arns function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_published_schema_arns"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "clouddirectory-inventory-runner" do
   action :run
   service :CloudDirectory
-  rules ["clouddirectory-inventory-development_schema_arns", "clouddirectory-inventory-directories", "clouddirectory-inventory-published_schema_arns"]
+  rules ["clouddirectory-inventory-directories"]
 end
 coreo_aws_rule "cloudformation-inventory-stacks" do
   service :CloudFormation
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudFormation Inventory"
@@ -1258,23 +1148,9 @@ coreo_aws_rule "cloudformation-inventory-stacks" do
   raise_when [//]
   id_map ["stacks.role_arn"]
 end
-coreo_aws_rule "cloudformation-inventory-account_limits" do
-  service :CloudFormation
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudFormation Inventory"
-  description "This rule performs an inventory on the CloudFormation service using the describe_account_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_account_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "cloudformation-inventory-exports" do
   service :CloudFormation
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudFormation Inventory"
@@ -1290,6 +1166,7 @@ coreo_aws_rule "cloudformation-inventory-exports" do
 end
 coreo_aws_rule "cloudformation-inventory-stacks" do
   service :CloudFormation
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudFormation Inventory"
@@ -1307,10 +1184,11 @@ end
 coreo_aws_rule_runner "cloudformation-inventory-runner" do
   action :run
   service :CloudFormation
-  rules ["cloudformation-inventory-stacks", "cloudformation-inventory-account_limits", "cloudformation-inventory-exports", "cloudformation-inventory-stacks"]
+  rules ["cloudformation-inventory-stacks", "cloudformation-inventory-exports", "cloudformation-inventory-stacks"]
 end
 coreo_aws_rule "cloudfront-inventory-cloud_front_origin_access_identities" do
   service :CloudFront
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudFront Inventory"
@@ -1326,6 +1204,7 @@ coreo_aws_rule "cloudfront-inventory-cloud_front_origin_access_identities" do
 end
 coreo_aws_rule "cloudfront-inventory-distributions" do
   service :CloudFront
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudFront Inventory"
@@ -1341,6 +1220,7 @@ coreo_aws_rule "cloudfront-inventory-distributions" do
 end
 coreo_aws_rule "cloudfront-inventory-streaming_distributions" do
   service :CloudFront
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudFront Inventory"
@@ -1360,74 +1240,15 @@ coreo_aws_rule_runner "cloudfront-inventory-runner" do
   service :CloudFront
   rules ["cloudfront-inventory-cloud_front_origin_access_identities", "cloudfront-inventory-distributions", "cloudfront-inventory-streaming_distributions"]
 end
-coreo_aws_rule "cloudhsm-inventory-available_zones" do
-  service :CloudHSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudHSM Inventory"
-  description "This rule performs an inventory on the CloudHSM service using the list_available_zones function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_available_zones"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "cloudhsm-inventory-hapgs" do
-  service :CloudHSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudHSM Inventory"
-  description "This rule performs an inventory on the CloudHSM service using the list_hapgs function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_hapgs"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "cloudhsm-inventory-hsms" do
-  service :CloudHSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudHSM Inventory"
-  description "This rule performs an inventory on the CloudHSM service using the list_hsms function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_hsms"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "cloudhsm-inventory-luna_clients" do
-  service :CloudHSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudHSM Inventory"
-  description "This rule performs an inventory on the CloudHSM service using the list_luna_clients function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_luna_clients"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "cloudhsm-inventory-runner" do
   action :run
   service :CloudHSM
-  rules ["cloudhsm-inventory-available_zones", "cloudhsm-inventory-hapgs", "cloudhsm-inventory-hsms", "cloudhsm-inventory-luna_clients"]
+  rules []
 end
 coreo_aws_rule "cloudsearch-inventory-domains" do
   service :CloudSearch
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudSearch Inventory"
@@ -1441,29 +1262,15 @@ coreo_aws_rule "cloudsearch-inventory-domains" do
   raise_when [//]
   id_map ["domain_status_list.arn"]
 end
-coreo_aws_rule "cloudsearch-inventory-domain_names" do
-  service :CloudSearch
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudSearch Inventory"
-  description "This rule performs an inventory on the CloudSearch service using the list_domain_names function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_domain_names"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "cloudsearch-inventory-runner" do
   action :run
   service :CloudSearch
-  rules ["cloudsearch-inventory-domains", "cloudsearch-inventory-domain_names"]
+  rules ["cloudsearch-inventory-domains"]
 end
 coreo_aws_rule "cloudtrail-inventory-trails" do
   service :CloudTrail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudTrail Inventory"
@@ -1477,29 +1284,15 @@ coreo_aws_rule "cloudtrail-inventory-trails" do
   raise_when [//]
   id_map ["trail_list.sns_topic_arn"]
 end
-coreo_aws_rule "cloudtrail-inventory-public_keys" do
-  service :CloudTrail
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CloudTrail Inventory"
-  description "This rule performs an inventory on the CloudTrail service using the list_public_keys function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_public_keys"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "cloudtrail-inventory-runner" do
   action :run
   service :CloudTrail
-  rules ["cloudtrail-inventory-trails", "cloudtrail-inventory-public_keys"]
+  rules ["cloudtrail-inventory-trails"]
 end
 coreo_aws_rule "cloudwatch-inventory-alarms" do
   service :CloudWatch
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatch Inventory"
@@ -1515,6 +1308,7 @@ coreo_aws_rule "cloudwatch-inventory-alarms" do
 end
 coreo_aws_rule "cloudwatch-inventory-metrics" do
   service :CloudWatch
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatch Inventory"
@@ -1536,6 +1330,7 @@ coreo_aws_rule_runner "cloudwatch-inventory-runner" do
 end
 coreo_aws_rule "cloudwatchevents-inventory-rules" do
   service :CloudWatchEvents
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatchEvents Inventory"
@@ -1557,6 +1352,7 @@ coreo_aws_rule_runner "cloudwatchevents-inventory-runner" do
 end
 coreo_aws_rule "cloudwatchlogs-inventory-export_tasks" do
   service :CloudWatchLogs
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatchLogs Inventory"
@@ -1572,6 +1368,7 @@ coreo_aws_rule "cloudwatchlogs-inventory-export_tasks" do
 end
 coreo_aws_rule "cloudwatchlogs-inventory-destinations" do
   service :CloudWatchLogs
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatchLogs Inventory"
@@ -1587,6 +1384,7 @@ coreo_aws_rule "cloudwatchlogs-inventory-destinations" do
 end
 coreo_aws_rule "cloudwatchlogs-inventory-log_groups" do
   service :CloudWatchLogs
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatchLogs Inventory"
@@ -1602,6 +1400,7 @@ coreo_aws_rule "cloudwatchlogs-inventory-log_groups" do
 end
 coreo_aws_rule "cloudwatchlogs-inventory-metric_filters" do
   service :CloudWatchLogs
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CloudWatchLogs Inventory"
@@ -1623,6 +1422,7 @@ coreo_aws_rule_runner "cloudwatchlogs-inventory-runner" do
 end
 coreo_aws_rule "codebuild-inventory-builds" do
   service :CodeBuild
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CodeBuild Inventory"
@@ -1636,44 +1436,15 @@ coreo_aws_rule "codebuild-inventory-builds" do
   raise_when [//]
   id_map ["ids"]
 end
-coreo_aws_rule "codebuild-inventory-curated_environment_images" do
-  service :CodeBuild
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeBuild Inventory"
-  description "This rule performs an inventory on the CodeBuild service using the list_curated_environment_images function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_curated_environment_images"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "codebuild-inventory-projects" do
-  service :CodeBuild
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeBuild Inventory"
-  description "This rule performs an inventory on the CodeBuild service using the list_projects function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_projects"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "codebuild-inventory-runner" do
   action :run
   service :CodeBuild
-  rules ["codebuild-inventory-builds", "codebuild-inventory-curated_environment_images", "codebuild-inventory-projects"]
+  rules ["codebuild-inventory-builds"]
 end
 coreo_aws_rule "codecommit-inventory-repositories" do
   service :CodeCommit
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CodeCommit Inventory"
@@ -1693,89 +1464,15 @@ coreo_aws_rule_runner "codecommit-inventory-runner" do
   service :CodeCommit
   rules ["codecommit-inventory-repositories"]
 end
-coreo_aws_rule "codedeploy-inventory-applications" do
-  service :CodeDeploy
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeDeploy Inventory"
-  description "This rule performs an inventory on the CodeDeploy service using the list_applications function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_applications"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "codedeploy-inventory-deployment_configs" do
-  service :CodeDeploy
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeDeploy Inventory"
-  description "This rule performs an inventory on the CodeDeploy service using the list_deployment_configs function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_deployment_configs"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "codedeploy-inventory-deployments" do
-  service :CodeDeploy
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeDeploy Inventory"
-  description "This rule performs an inventory on the CodeDeploy service using the list_deployments function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_deployments"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "codedeploy-inventory-git_hub_account_token_names" do
-  service :CodeDeploy
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeDeploy Inventory"
-  description "This rule performs an inventory on the CodeDeploy service using the list_git_hub_account_token_names function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_git_hub_account_token_names"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "codedeploy-inventory-on_premises_instances" do
-  service :CodeDeploy
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodeDeploy Inventory"
-  description "This rule performs an inventory on the CodeDeploy service using the list_on_premises_instances function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_on_premises_instances"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "codedeploy-inventory-runner" do
   action :run
   service :CodeDeploy
-  rules ["codedeploy-inventory-applications", "codedeploy-inventory-deployment_configs", "codedeploy-inventory-deployments", "codedeploy-inventory-git_hub_account_token_names", "codedeploy-inventory-on_premises_instances"]
+  rules []
 end
 coreo_aws_rule "codepipeline-inventory-action_types" do
   service :CodePipeline
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CodePipeline Inventory"
@@ -1789,29 +1486,15 @@ coreo_aws_rule "codepipeline-inventory-action_types" do
   raise_when [//]
   id_map ["action_types.id.category"]
 end
-coreo_aws_rule "codepipeline-inventory-pipelines" do
-  service :CodePipeline
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "CodePipeline Inventory"
-  description "This rule performs an inventory on the CodePipeline service using the list_pipelines function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_pipelines"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "codepipeline-inventory-runner" do
   action :run
   service :CodePipeline
-  rules ["codepipeline-inventory-action_types", "codepipeline-inventory-pipelines"]
+  rules ["codepipeline-inventory-action_types"]
 end
 coreo_aws_rule "codestar-inventory-projects" do
   service :CodeStar
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CodeStar Inventory"
@@ -1827,6 +1510,7 @@ coreo_aws_rule "codestar-inventory-projects" do
 end
 coreo_aws_rule "codestar-inventory-user_profiles" do
   service :CodeStar
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "CodeStar Inventory"
@@ -1848,6 +1532,7 @@ coreo_aws_rule_runner "codestar-inventory-runner" do
 end
 coreo_aws_rule "configservice-inventory-config_rule_evaluation_status" do
   service :ConfigService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ConfigService Inventory"
@@ -1863,6 +1548,7 @@ coreo_aws_rule "configservice-inventory-config_rule_evaluation_status" do
 end
 coreo_aws_rule "configservice-inventory-config_rules" do
   service :ConfigService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ConfigService Inventory"
@@ -1876,23 +1562,9 @@ coreo_aws_rule "configservice-inventory-config_rules" do
   raise_when [//]
   id_map ["config_rules.config_rule_arn"]
 end
-coreo_aws_rule "configservice-inventory-configuration_recorder_status" do
-  service :ConfigService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ConfigService Inventory"
-  description "This rule performs an inventory on the ConfigService service using the describe_configuration_recorder_status function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_configuration_recorder_status"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "configservice-inventory-configuration_recorders" do
   service :ConfigService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ConfigService Inventory"
@@ -1906,23 +1578,9 @@ coreo_aws_rule "configservice-inventory-configuration_recorders" do
   raise_when [//]
   id_map ["configuration_recorders.role_arn"]
 end
-coreo_aws_rule "configservice-inventory-delivery_channel_status" do
-  service :ConfigService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ConfigService Inventory"
-  description "This rule performs an inventory on the ConfigService service using the describe_delivery_channel_status function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_delivery_channel_status"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "configservice-inventory-delivery_channels" do
   service :ConfigService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ConfigService Inventory"
@@ -1940,10 +1598,11 @@ end
 coreo_aws_rule_runner "configservice-inventory-runner" do
   action :run
   service :ConfigService
-  rules ["configservice-inventory-config_rule_evaluation_status", "configservice-inventory-config_rules", "configservice-inventory-configuration_recorder_status", "configservice-inventory-configuration_recorders", "configservice-inventory-delivery_channel_status", "configservice-inventory-delivery_channels"]
+  rules ["configservice-inventory-config_rule_evaluation_status", "configservice-inventory-config_rules", "configservice-inventory-configuration_recorders", "configservice-inventory-delivery_channels"]
 end
 coreo_aws_rule "datapipeline-inventory-pipelines" do
   service :DataPipeline
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DataPipeline Inventory"
@@ -1965,6 +1624,7 @@ coreo_aws_rule_runner "datapipeline-inventory-runner" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-account_attributes" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -1980,6 +1640,7 @@ coreo_aws_rule "databasemigrationservice-inventory-account_attributes" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-certificates" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -1995,6 +1656,7 @@ coreo_aws_rule "databasemigrationservice-inventory-certificates" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-connections" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2010,6 +1672,7 @@ coreo_aws_rule "databasemigrationservice-inventory-connections" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-endpoint_types" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2025,6 +1688,7 @@ coreo_aws_rule "databasemigrationservice-inventory-endpoint_types" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-endpoints" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2038,23 +1702,9 @@ coreo_aws_rule "databasemigrationservice-inventory-endpoints" do
   raise_when [//]
   id_map ["endpoints.endpoint_arn"]
 end
-coreo_aws_rule "databasemigrationservice-inventory-event_categories" do
-  service :DatabaseMigrationService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "DatabaseMigrationService Inventory"
-  description "This rule performs an inventory on the DatabaseMigrationService service using the describe_event_categories function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_event_categories"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "databasemigrationservice-inventory-event_subscriptions" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2068,38 +1718,9 @@ coreo_aws_rule "databasemigrationservice-inventory-event_subscriptions" do
   raise_when [//]
   id_map ["event_subscriptions_list.sns_topic_arn"]
 end
-coreo_aws_rule "databasemigrationservice-inventory-events" do
-  service :DatabaseMigrationService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "DatabaseMigrationService Inventory"
-  description "This rule performs an inventory on the DatabaseMigrationService service using the describe_events function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_events"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "databasemigrationservice-inventory-orderable_replication_instances" do
-  service :DatabaseMigrationService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "DatabaseMigrationService Inventory"
-  description "This rule performs an inventory on the DatabaseMigrationService service using the describe_orderable_replication_instances function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_orderable_replication_instances"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "databasemigrationservice-inventory-replication_instances" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2115,6 +1736,7 @@ coreo_aws_rule "databasemigrationservice-inventory-replication_instances" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-replication_subnet_groups" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2130,6 +1752,7 @@ coreo_aws_rule "databasemigrationservice-inventory-replication_subnet_groups" do
 end
 coreo_aws_rule "databasemigrationservice-inventory-replication_tasks" do
   service :DatabaseMigrationService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DatabaseMigrationService Inventory"
@@ -2147,10 +1770,11 @@ end
 coreo_aws_rule_runner "databasemigrationservice-inventory-runner" do
   action :run
   service :DatabaseMigrationService
-  rules ["databasemigrationservice-inventory-account_attributes", "databasemigrationservice-inventory-certificates", "databasemigrationservice-inventory-connections", "databasemigrationservice-inventory-endpoint_types", "databasemigrationservice-inventory-endpoints", "databasemigrationservice-inventory-event_categories", "databasemigrationservice-inventory-event_subscriptions", "databasemigrationservice-inventory-events", "databasemigrationservice-inventory-orderable_replication_instances", "databasemigrationservice-inventory-replication_instances", "databasemigrationservice-inventory-replication_subnet_groups", "databasemigrationservice-inventory-replication_tasks"]
+  rules ["databasemigrationservice-inventory-account_attributes", "databasemigrationservice-inventory-certificates", "databasemigrationservice-inventory-connections", "databasemigrationservice-inventory-endpoint_types", "databasemigrationservice-inventory-endpoints", "databasemigrationservice-inventory-event_subscriptions", "databasemigrationservice-inventory-replication_instances", "databasemigrationservice-inventory-replication_subnet_groups", "databasemigrationservice-inventory-replication_tasks"]
 end
 coreo_aws_rule "directconnect-inventory-connections" do
   service :DirectConnect
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectConnect Inventory"
@@ -2166,6 +1790,7 @@ coreo_aws_rule "directconnect-inventory-connections" do
 end
 coreo_aws_rule "directconnect-inventory-lags" do
   service :DirectConnect
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectConnect Inventory"
@@ -2181,6 +1806,7 @@ coreo_aws_rule "directconnect-inventory-lags" do
 end
 coreo_aws_rule "directconnect-inventory-locations" do
   service :DirectConnect
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectConnect Inventory"
@@ -2196,6 +1822,7 @@ coreo_aws_rule "directconnect-inventory-locations" do
 end
 coreo_aws_rule "directconnect-inventory-virtual_gateways" do
   service :DirectConnect
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectConnect Inventory"
@@ -2211,6 +1838,7 @@ coreo_aws_rule "directconnect-inventory-virtual_gateways" do
 end
 coreo_aws_rule "directconnect-inventory-virtual_interfaces" do
   service :DirectConnect
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectConnect Inventory"
@@ -2232,6 +1860,7 @@ coreo_aws_rule_runner "directconnect-inventory-runner" do
 end
 coreo_aws_rule "directoryservice-inventory-directories" do
   service :DirectoryService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectoryService Inventory"
@@ -2247,6 +1876,7 @@ coreo_aws_rule "directoryservice-inventory-directories" do
 end
 coreo_aws_rule "directoryservice-inventory-event_topics" do
   service :DirectoryService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectoryService Inventory"
@@ -2262,6 +1892,7 @@ coreo_aws_rule "directoryservice-inventory-event_topics" do
 end
 coreo_aws_rule "directoryservice-inventory-snapshots" do
   service :DirectoryService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectoryService Inventory"
@@ -2277,6 +1908,7 @@ coreo_aws_rule "directoryservice-inventory-snapshots" do
 end
 coreo_aws_rule "directoryservice-inventory-trusts" do
   service :DirectoryService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DirectoryService Inventory"
@@ -2290,44 +1922,15 @@ coreo_aws_rule "directoryservice-inventory-trusts" do
   raise_when [//]
   id_map ["trusts.directory_id"]
 end
-coreo_aws_rule "directoryservice-inventory-directory_limits" do
-  service :DirectoryService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "DirectoryService Inventory"
-  description "This rule performs an inventory on the DirectoryService service using the get_directory_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_directory_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "directoryservice-inventory-runner" do
   action :run
   service :DirectoryService
-  rules ["directoryservice-inventory-directories", "directoryservice-inventory-event_topics", "directoryservice-inventory-snapshots", "directoryservice-inventory-trusts", "directoryservice-inventory-directory_limits"]
-end
-coreo_aws_rule "dynamodb-inventory-limits" do
-  service :DynamoDB
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "DynamoDB Inventory"
-  description "This rule performs an inventory on the DynamoDB service using the describe_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["directoryservice-inventory-directories", "directoryservice-inventory-event_topics", "directoryservice-inventory-snapshots", "directoryservice-inventory-trusts"]
 end
 coreo_aws_rule "dynamodb-inventory-tables" do
   service :DynamoDB
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DynamoDB Inventory"
@@ -2345,10 +1948,11 @@ end
 coreo_aws_rule_runner "dynamodb-inventory-runner" do
   action :run
   service :DynamoDB
-  rules ["dynamodb-inventory-limits", "dynamodb-inventory-tables"]
+  rules ["dynamodb-inventory-tables"]
 end
 coreo_aws_rule "dynamodbstreams-inventory-streams" do
   service :DynamoDBStreams
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "DynamoDBStreams Inventory"
@@ -2368,8 +1972,25 @@ coreo_aws_rule_runner "dynamodbstreams-inventory-runner" do
   service :DynamoDBStreams
   rules ["dynamodbstreams-inventory-streams"]
 end
+coreo_aws_rule "ec2-inventory-account_attributes" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_account_attributes function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_account_attributes"]
+  audit_objects ["account_attributes.attribute_name"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["account_attributes.attribute_name"]
+end
 coreo_aws_rule "ec2-inventory-images" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2385,6 +2006,7 @@ coreo_aws_rule "ec2-inventory-images" do
 end
 coreo_aws_rule "ec2-inventory-addresses" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2400,6 +2022,7 @@ coreo_aws_rule "ec2-inventory-addresses" do
 end
 coreo_aws_rule "ec2-inventory-availability_zones" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2415,6 +2038,7 @@ coreo_aws_rule "ec2-inventory-availability_zones" do
 end
 coreo_aws_rule "ec2-inventory-bundle_tasks" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2430,6 +2054,7 @@ coreo_aws_rule "ec2-inventory-bundle_tasks" do
 end
 coreo_aws_rule "ec2-inventory-classic_link_instances" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2445,6 +2070,7 @@ coreo_aws_rule "ec2-inventory-classic_link_instances" do
 end
 coreo_aws_rule "ec2-inventory-conversion_tasks" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2460,6 +2086,7 @@ coreo_aws_rule "ec2-inventory-conversion_tasks" do
 end
 coreo_aws_rule "ec2-inventory-customer_gateways" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2475,6 +2102,7 @@ coreo_aws_rule "ec2-inventory-customer_gateways" do
 end
 coreo_aws_rule "ec2-inventory-dhcp_options" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2490,6 +2118,7 @@ coreo_aws_rule "ec2-inventory-dhcp_options" do
 end
 coreo_aws_rule "ec2-inventory-egress_only_internet_gateways" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2505,6 +2134,7 @@ coreo_aws_rule "ec2-inventory-egress_only_internet_gateways" do
 end
 coreo_aws_rule "ec2-inventory-flow_logs" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2520,6 +2150,7 @@ coreo_aws_rule "ec2-inventory-flow_logs" do
 end
 coreo_aws_rule "ec2-inventory-host_reservations" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2535,6 +2166,7 @@ coreo_aws_rule "ec2-inventory-host_reservations" do
 end
 coreo_aws_rule "ec2-inventory-hosts" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2550,6 +2182,7 @@ coreo_aws_rule "ec2-inventory-hosts" do
 end
 coreo_aws_rule "ec2-inventory-iam_instance_profile_associations" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2565,6 +2198,7 @@ coreo_aws_rule "ec2-inventory-iam_instance_profile_associations" do
 end
 coreo_aws_rule "ec2-inventory-import_image_tasks" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2580,6 +2214,7 @@ coreo_aws_rule "ec2-inventory-import_image_tasks" do
 end
 coreo_aws_rule "ec2-inventory-import_snapshot_tasks" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2595,6 +2230,7 @@ coreo_aws_rule "ec2-inventory-import_snapshot_tasks" do
 end
 coreo_aws_rule "ec2-inventory-instance_status" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2610,6 +2246,7 @@ coreo_aws_rule "ec2-inventory-instance_status" do
 end
 coreo_aws_rule "ec2-inventory-instances" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2625,6 +2262,7 @@ coreo_aws_rule "ec2-inventory-instances" do
 end
 coreo_aws_rule "ec2-inventory-internet_gateways" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2640,6 +2278,7 @@ coreo_aws_rule "ec2-inventory-internet_gateways" do
 end
 coreo_aws_rule "ec2-inventory-key_pairs" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2653,23 +2292,9 @@ coreo_aws_rule "ec2-inventory-key_pairs" do
   raise_when [//]
   id_map ["key_pairs.key_name"]
 end
-coreo_aws_rule "ec2-inventory-moving_addresses" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_moving_addresses function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_moving_addresses"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "ec2-inventory-nat_gateways" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2685,6 +2310,7 @@ coreo_aws_rule "ec2-inventory-nat_gateways" do
 end
 coreo_aws_rule "ec2-inventory-network_acls" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2700,6 +2326,7 @@ coreo_aws_rule "ec2-inventory-network_acls" do
 end
 coreo_aws_rule "ec2-inventory-network_interfaces" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2715,6 +2342,7 @@ coreo_aws_rule "ec2-inventory-network_interfaces" do
 end
 coreo_aws_rule "ec2-inventory-placement_groups" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2730,6 +2358,7 @@ coreo_aws_rule "ec2-inventory-placement_groups" do
 end
 coreo_aws_rule "ec2-inventory-prefix_lists" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2745,6 +2374,7 @@ coreo_aws_rule "ec2-inventory-prefix_lists" do
 end
 coreo_aws_rule "ec2-inventory-regions" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2760,6 +2390,7 @@ coreo_aws_rule "ec2-inventory-regions" do
 end
 coreo_aws_rule "ec2-inventory-reserved_instances" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2773,23 +2404,9 @@ coreo_aws_rule "ec2-inventory-reserved_instances" do
   raise_when [//]
   id_map ["reserved_instances.reserved_instances_id"]
 end
-coreo_aws_rule "ec2-inventory-reserved_instances_modifications" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_reserved_instances_modifications function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_reserved_instances_modifications"]
-  audit_objects ["reserved_instances_modifications.reserved_instances_modification_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["reserved_instances_modifications.reserved_instances_modification_id"]
-end
 coreo_aws_rule "ec2-inventory-reserved_instances_offerings" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2803,68 +2420,9 @@ coreo_aws_rule "ec2-inventory-reserved_instances_offerings" do
   raise_when [//]
   id_map ["reserved_instances_offerings.reserved_instances_offering_id"]
 end
-coreo_aws_rule "ec2-inventory-route_tables" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_route_tables function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_route_tables"]
-  audit_objects ["route_tables.route_table_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["route_tables.route_table_id"]
-end
-coreo_aws_rule "ec2-inventory-scheduled_instances" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_scheduled_instances function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_scheduled_instances"]
-  audit_objects ["scheduled_instance_set.scheduled_instance_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["scheduled_instance_set.scheduled_instance_id"]
-end
-coreo_aws_rule "ec2-inventory-security_groups" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_security_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_security_groups"]
-  audit_objects ["security_groups.owner_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["security_groups.owner_id"]
-end
-coreo_aws_rule "ec2-inventory-spot_instance_requests" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_spot_instance_requests function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_spot_instance_requests"]
-  audit_objects ["spot_instance_requests.launch_specification.iam_instance_profile.arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["spot_instance_requests.launch_specification.iam_instance_profile.arn"]
-end
 coreo_aws_rule "ec2-inventory-export_tasks" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2878,23 +2436,73 @@ coreo_aws_rule "ec2-inventory-export_tasks" do
   raise_when [//]
   id_map ["export_tasks.export_task_id"]
 end
-coreo_aws_rule "ec2-inventory-volumes" do
+coreo_aws_rule "ec2-inventory-scheduled_instances" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_volumes function"
+  description "This rule performs an inventory on the EC2 service using the describe_scheduled_instances function"
   category "Inventory"
   suggested_action "None."
   level "Informational"
-  objectives ["describe_volumes"]
-  audit_objects ["volumes.volume_id"]
+  objectives ["describe_scheduled_instances"]
+  audit_objects ["scheduled_instance_set.scheduled_instance_id"]
   operators ["=~"]
   raise_when [//]
-  id_map ["volumes.volume_id"]
+  id_map ["scheduled_instance_set.scheduled_instance_id"]
+end
+coreo_aws_rule "ec2-inventory-route_tables" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_route_tables function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_route_tables"]
+  audit_objects ["route_tables.route_table_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["route_tables.route_table_id"]
+end
+coreo_aws_rule "ec2-inventory-reserved_instances_modifications" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_reserved_instances_modifications function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_reserved_instances_modifications"]
+  audit_objects ["reserved_instances_modifications.reserved_instances_modification_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["reserved_instances_modifications.reserved_instances_modification_id"]
+end
+coreo_aws_rule "ec2-inventory-security_groups" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_security_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_security_groups"]
+  audit_objects ["security_groups.owner_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["security_groups.owner_id"]
 end
 coreo_aws_rule "ec2-inventory-spot_fleet_requests" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2908,23 +2516,9 @@ coreo_aws_rule "ec2-inventory-spot_fleet_requests" do
   raise_when [//]
   id_map ["spot_fleet_request_configs.spot_fleet_request_config.launch_specifications.iam_instance_profile.arn"]
 end
-coreo_aws_rule "ec2-inventory-snapshots" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_snapshots function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_snapshots"]
-  audit_objects ["snapshots.snapshot_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["snapshots.snapshot_id"]
-end
 coreo_aws_rule "ec2-inventory-subnets" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2940,6 +2534,7 @@ coreo_aws_rule "ec2-inventory-subnets" do
 end
 coreo_aws_rule "ec2-inventory-volume_status" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2953,8 +2548,57 @@ coreo_aws_rule "ec2-inventory-volume_status" do
   raise_when [//]
   id_map ["volume_statuses.volume_id"]
 end
+coreo_aws_rule "ec2-inventory-spot_instance_requests" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_spot_instance_requests function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_spot_instance_requests"]
+  audit_objects ["spot_instance_requests.launch_specification.iam_instance_profile.arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["spot_instance_requests.launch_specification.iam_instance_profile.arn"]
+end
+coreo_aws_rule "ec2-inventory-volumes" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_volumes function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_volumes"]
+  audit_objects ["volumes.volume_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["volumes.volume_id"]
+end
+coreo_aws_rule "ec2-inventory-snapshots" do
+  service :EC2
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "EC2 Inventory"
+  description "This rule performs an inventory on the EC2 service using the describe_snapshots function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_snapshots"]
+  audit_objects ["snapshots.snapshot_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["snapshots.snapshot_id"]
+end
 coreo_aws_rule "ec2-inventory-volumes_modifications" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2970,6 +2614,7 @@ coreo_aws_rule "ec2-inventory-volumes_modifications" do
 end
 coreo_aws_rule "ec2-inventory-vpc_endpoints" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -2985,6 +2630,7 @@ coreo_aws_rule "ec2-inventory-vpc_endpoints" do
 end
 coreo_aws_rule "ec2-inventory-vpc_peering_connections" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -3000,6 +2646,7 @@ coreo_aws_rule "ec2-inventory-vpc_peering_connections" do
 end
 coreo_aws_rule "ec2-inventory-vpcs" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -3013,23 +2660,9 @@ coreo_aws_rule "ec2-inventory-vpcs" do
   raise_when [//]
   id_map ["vpcs.vpc_id"]
 end
-coreo_aws_rule "ec2-inventory-vpc_endpoint_services" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_vpc_endpoint_services function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_vpc_endpoint_services"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "ec2-inventory-vpn_gateways" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -3045,6 +2678,7 @@ coreo_aws_rule "ec2-inventory-vpn_gateways" do
 end
 coreo_aws_rule "ec2-inventory-vpn_connections" do
   service :EC2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EC2 Inventory"
@@ -3058,29 +2692,15 @@ coreo_aws_rule "ec2-inventory-vpn_connections" do
   raise_when [//]
   id_map ["vpn_connections.vpn_connection_id"]
 end
-coreo_aws_rule "ec2-inventory-account_attributes" do
-  service :EC2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EC2 Inventory"
-  description "This rule performs an inventory on the EC2 service using the describe_account_attributes function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_account_attributes"]
-  audit_objects ["account_attributes.attribute_name"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["account_attributes.attribute_name"]
-end
 
 coreo_aws_rule_runner "ec2-inventory-runner" do
   action :run
   service :EC2
-  rules ["ec2-inventory-images", "ec2-inventory-addresses", "ec2-inventory-availability_zones", "ec2-inventory-bundle_tasks", "ec2-inventory-classic_link_instances", "ec2-inventory-conversion_tasks", "ec2-inventory-customer_gateways", "ec2-inventory-dhcp_options", "ec2-inventory-egress_only_internet_gateways", "ec2-inventory-flow_logs", "ec2-inventory-host_reservations", "ec2-inventory-hosts", "ec2-inventory-iam_instance_profile_associations", "ec2-inventory-import_image_tasks", "ec2-inventory-import_snapshot_tasks", "ec2-inventory-instance_status", "ec2-inventory-instances", "ec2-inventory-internet_gateways", "ec2-inventory-key_pairs", "ec2-inventory-moving_addresses", "ec2-inventory-nat_gateways", "ec2-inventory-network_acls", "ec2-inventory-network_interfaces", "ec2-inventory-placement_groups", "ec2-inventory-prefix_lists", "ec2-inventory-regions", "ec2-inventory-reserved_instances", "ec2-inventory-reserved_instances_modifications", "ec2-inventory-reserved_instances_offerings", "ec2-inventory-route_tables", "ec2-inventory-scheduled_instances", "ec2-inventory-security_groups", "ec2-inventory-spot_instance_requests", "ec2-inventory-export_tasks", "ec2-inventory-volumes", "ec2-inventory-spot_fleet_requests", "ec2-inventory-snapshots", "ec2-inventory-subnets", "ec2-inventory-volume_status", "ec2-inventory-volumes_modifications", "ec2-inventory-vpc_endpoints", "ec2-inventory-vpc_peering_connections", "ec2-inventory-vpcs", "ec2-inventory-vpc_endpoint_services", "ec2-inventory-vpn_gateways", "ec2-inventory-vpn_connections", "ec2-inventory-account_attributes"]
+  rules ["ec2-inventory-account_attributes", "ec2-inventory-images", "ec2-inventory-addresses", "ec2-inventory-availability_zones", "ec2-inventory-bundle_tasks", "ec2-inventory-classic_link_instances", "ec2-inventory-conversion_tasks", "ec2-inventory-customer_gateways", "ec2-inventory-dhcp_options", "ec2-inventory-egress_only_internet_gateways", "ec2-inventory-flow_logs", "ec2-inventory-host_reservations", "ec2-inventory-hosts", "ec2-inventory-iam_instance_profile_associations", "ec2-inventory-import_image_tasks", "ec2-inventory-import_snapshot_tasks", "ec2-inventory-instance_status", "ec2-inventory-instances", "ec2-inventory-internet_gateways", "ec2-inventory-key_pairs", "ec2-inventory-nat_gateways", "ec2-inventory-network_acls", "ec2-inventory-network_interfaces", "ec2-inventory-placement_groups", "ec2-inventory-prefix_lists", "ec2-inventory-regions", "ec2-inventory-reserved_instances", "ec2-inventory-reserved_instances_offerings", "ec2-inventory-export_tasks", "ec2-inventory-scheduled_instances", "ec2-inventory-route_tables", "ec2-inventory-reserved_instances_modifications", "ec2-inventory-security_groups", "ec2-inventory-spot_fleet_requests", "ec2-inventory-subnets", "ec2-inventory-volume_status", "ec2-inventory-spot_instance_requests", "ec2-inventory-volumes", "ec2-inventory-snapshots", "ec2-inventory-volumes_modifications", "ec2-inventory-vpc_endpoints", "ec2-inventory-vpc_peering_connections", "ec2-inventory-vpcs", "ec2-inventory-vpn_gateways", "ec2-inventory-vpn_connections"]
 end
 coreo_aws_rule "ecr-inventory-repositories" do
   service :ECR
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ECR Inventory"
@@ -3102,6 +2722,7 @@ coreo_aws_rule_runner "ecr-inventory-runner" do
 end
 coreo_aws_rule "ecs-inventory-clusters" do
   service :ECS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ECS Inventory"
@@ -3115,59 +2736,15 @@ coreo_aws_rule "ecs-inventory-clusters" do
   raise_when [//]
   id_map ["clusters.cluster_arn"]
 end
-coreo_aws_rule "ecs-inventory-clusters" do
-  service :ECS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ECS Inventory"
-  description "This rule performs an inventory on the ECS service using the list_clusters function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_clusters"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "ecs-inventory-task_definition_families" do
-  service :ECS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ECS Inventory"
-  description "This rule performs an inventory on the ECS service using the list_task_definition_families function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_task_definition_families"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "ecs-inventory-task_definitions" do
-  service :ECS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ECS Inventory"
-  description "This rule performs an inventory on the ECS service using the list_task_definitions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_task_definitions"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "ecs-inventory-runner" do
   action :run
   service :ECS
-  rules ["ecs-inventory-clusters", "ecs-inventory-clusters", "ecs-inventory-task_definition_families", "ecs-inventory-task_definitions"]
+  rules ["ecs-inventory-clusters"]
 end
 coreo_aws_rule "efs-inventory-file_systems" do
   service :EFS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EFS Inventory"
@@ -3189,6 +2766,7 @@ coreo_aws_rule_runner "efs-inventory-runner" do
 end
 coreo_aws_rule "emr-inventory-clusters" do
   service :EMR
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "EMR Inventory"
@@ -3202,44 +2780,15 @@ coreo_aws_rule "emr-inventory-clusters" do
   raise_when [//]
   id_map ["clusters.id"]
 end
-coreo_aws_rule "emr-inventory-security_configurations" do
-  service :EMR
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "EMR Inventory"
-  description "This rule performs an inventory on the EMR service using the list_security_configurations function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_security_configurations"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "emr-inventory-runner" do
   action :run
   service :EMR
-  rules ["emr-inventory-clusters", "emr-inventory-security_configurations"]
-end
-coreo_aws_rule "elasticache-inventory-events" do
-  service :ElastiCache
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ElastiCache Inventory"
-  description "This rule performs an inventory on the ElastiCache service using the describe_events function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_events"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["emr-inventory-clusters"]
 end
 coreo_aws_rule "elasticache-inventory-snapshots" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3255,6 +2804,7 @@ coreo_aws_rule "elasticache-inventory-snapshots" do
 end
 coreo_aws_rule "elasticache-inventory-cache_clusters" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3268,23 +2818,9 @@ coreo_aws_rule "elasticache-inventory-cache_clusters" do
   raise_when [//]
   id_map ["cache_clusters.notification_configuration.topic_arn"]
 end
-coreo_aws_rule "elasticache-inventory-cache_engine_versions" do
-  service :ElastiCache
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ElastiCache Inventory"
-  description "This rule performs an inventory on the ElastiCache service using the describe_cache_engine_versions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_cache_engine_versions"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "elasticache-inventory-cache_parameter_groups" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3300,6 +2836,7 @@ coreo_aws_rule "elasticache-inventory-cache_parameter_groups" do
 end
 coreo_aws_rule "elasticache-inventory-cache_subnet_groups" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3315,6 +2852,7 @@ coreo_aws_rule "elasticache-inventory-cache_subnet_groups" do
 end
 coreo_aws_rule "elasticache-inventory-replication_groups" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3330,6 +2868,7 @@ coreo_aws_rule "elasticache-inventory-replication_groups" do
 end
 coreo_aws_rule "elasticache-inventory-reserved_cache_nodes" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3345,6 +2884,7 @@ coreo_aws_rule "elasticache-inventory-reserved_cache_nodes" do
 end
 coreo_aws_rule "elasticache-inventory-reserved_cache_nodes_offerings" do
   service :ElastiCache
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElastiCache Inventory"
@@ -3362,10 +2902,11 @@ end
 coreo_aws_rule_runner "elasticache-inventory-runner" do
   action :run
   service :ElastiCache
-  rules ["elasticache-inventory-events", "elasticache-inventory-snapshots", "elasticache-inventory-cache_clusters", "elasticache-inventory-cache_engine_versions", "elasticache-inventory-cache_parameter_groups", "elasticache-inventory-cache_subnet_groups", "elasticache-inventory-replication_groups", "elasticache-inventory-reserved_cache_nodes", "elasticache-inventory-reserved_cache_nodes_offerings"]
+  rules ["elasticache-inventory-snapshots", "elasticache-inventory-cache_clusters", "elasticache-inventory-cache_parameter_groups", "elasticache-inventory-cache_subnet_groups", "elasticache-inventory-replication_groups", "elasticache-inventory-reserved_cache_nodes", "elasticache-inventory-reserved_cache_nodes_offerings"]
 end
 coreo_aws_rule "elasticbeanstalk-inventory-events" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3381,6 +2922,7 @@ coreo_aws_rule "elasticbeanstalk-inventory-events" do
 end
 coreo_aws_rule "elasticbeanstalk-inventory-application_versions" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3396,6 +2938,7 @@ coreo_aws_rule "elasticbeanstalk-inventory-application_versions" do
 end
 coreo_aws_rule "elasticbeanstalk-inventory-applications" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3411,6 +2954,7 @@ coreo_aws_rule "elasticbeanstalk-inventory-applications" do
 end
 coreo_aws_rule "elasticbeanstalk-inventory-configuration_options" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3426,6 +2970,7 @@ coreo_aws_rule "elasticbeanstalk-inventory-configuration_options" do
 end
 coreo_aws_rule "elasticbeanstalk-inventory-environments" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3441,6 +2986,7 @@ coreo_aws_rule "elasticbeanstalk-inventory-environments" do
 end
 coreo_aws_rule "elasticbeanstalk-inventory-available_solution_stacks" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3456,6 +3002,7 @@ coreo_aws_rule "elasticbeanstalk-inventory-available_solution_stacks" do
 end
 coreo_aws_rule "elasticbeanstalk-inventory-platform_versions" do
   service :ElasticBeanstalk
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticBeanstalk Inventory"
@@ -3475,23 +3022,9 @@ coreo_aws_rule_runner "elasticbeanstalk-inventory-runner" do
   service :ElasticBeanstalk
   rules ["elasticbeanstalk-inventory-events", "elasticbeanstalk-inventory-application_versions", "elasticbeanstalk-inventory-applications", "elasticbeanstalk-inventory-configuration_options", "elasticbeanstalk-inventory-environments", "elasticbeanstalk-inventory-available_solution_stacks", "elasticbeanstalk-inventory-platform_versions"]
 end
-coreo_aws_rule "elasticloadbalancing-inventory-account_limits" do
-  service :ElasticLoadBalancing
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ElasticLoadBalancing Inventory"
-  description "This rule performs an inventory on the ElasticLoadBalancing service using the describe_account_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_account_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "elasticloadbalancing-inventory-load_balancers" do
   service :ElasticLoadBalancing
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticLoadBalancing Inventory"
@@ -3507,6 +3040,7 @@ coreo_aws_rule "elasticloadbalancing-inventory-load_balancers" do
 end
 coreo_aws_rule "elasticloadbalancing-inventory-load_balancer_policies" do
   service :ElasticLoadBalancing
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticLoadBalancing Inventory"
@@ -3522,6 +3056,7 @@ coreo_aws_rule "elasticloadbalancing-inventory-load_balancer_policies" do
 end
 coreo_aws_rule "elasticloadbalancing-inventory-load_balancer_policy_types" do
   service :ElasticLoadBalancing
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticLoadBalancing Inventory"
@@ -3539,25 +3074,11 @@ end
 coreo_aws_rule_runner "elasticloadbalancing-inventory-runner" do
   action :run
   service :ElasticLoadBalancing
-  rules ["elasticloadbalancing-inventory-account_limits", "elasticloadbalancing-inventory-load_balancers", "elasticloadbalancing-inventory-load_balancer_policies", "elasticloadbalancing-inventory-load_balancer_policy_types"]
-end
-coreo_aws_rule "elasticloadbalancingv2-inventory-account_limits" do
-  service :ElasticLoadBalancingV2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ElasticLoadBalancingV2 Inventory"
-  description "This rule performs an inventory on the ElasticLoadBalancingV2 service using the describe_account_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_account_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["elasticloadbalancing-inventory-load_balancers", "elasticloadbalancing-inventory-load_balancer_policies", "elasticloadbalancing-inventory-load_balancer_policy_types"]
 end
 coreo_aws_rule "elasticloadbalancingv2-inventory-load_balancers" do
   service :ElasticLoadBalancingV2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticLoadBalancingV2 Inventory"
@@ -3571,23 +3092,9 @@ coreo_aws_rule "elasticloadbalancingv2-inventory-load_balancers" do
   raise_when [//]
   id_map ["load_balancers.load_balancer_arn"]
 end
-coreo_aws_rule "elasticloadbalancingv2-inventory-ssl_policies" do
-  service :ElasticLoadBalancingV2
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ElasticLoadBalancingV2 Inventory"
-  description "This rule performs an inventory on the ElasticLoadBalancingV2 service using the describe_ssl_policies function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_ssl_policies"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "elasticloadbalancingv2-inventory-targroups" do
   service :ElasticLoadBalancingV2
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticLoadBalancingV2 Inventory"
@@ -3605,10 +3112,11 @@ end
 coreo_aws_rule_runner "elasticloadbalancingv2-inventory-runner" do
   action :run
   service :ElasticLoadBalancingV2
-  rules ["elasticloadbalancingv2-inventory-account_limits", "elasticloadbalancingv2-inventory-load_balancers", "elasticloadbalancingv2-inventory-ssl_policies", "elasticloadbalancingv2-inventory-targroups"]
+  rules ["elasticloadbalancingv2-inventory-load_balancers", "elasticloadbalancingv2-inventory-targroups"]
 end
 coreo_aws_rule "elastictranscoder-inventory-pipelines" do
   service :ElasticTranscoder
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticTranscoder Inventory"
@@ -3624,6 +3132,7 @@ coreo_aws_rule "elastictranscoder-inventory-pipelines" do
 end
 coreo_aws_rule "elastictranscoder-inventory-presets" do
   service :ElasticTranscoder
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticTranscoder Inventory"
@@ -3645,6 +3154,7 @@ coreo_aws_rule_runner "elastictranscoder-inventory-runner" do
 end
 coreo_aws_rule "elasticsearchservice-inventory-domain_names" do
   service :ElasticsearchService
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ElasticsearchService Inventory"
@@ -3658,50 +3168,21 @@ coreo_aws_rule "elasticsearchservice-inventory-domain_names" do
   raise_when [//]
   id_map ["domain_names.domain_name"]
 end
-coreo_aws_rule "elasticsearchservice-inventory-elasticsearch_versions" do
-  service :ElasticsearchService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ElasticsearchService Inventory"
-  description "This rule performs an inventory on the ElasticsearchService service using the list_elasticsearch_versions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_elasticsearch_versions"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "elasticsearchservice-inventory-runner" do
   action :run
   service :ElasticsearchService
-  rules ["elasticsearchservice-inventory-domain_names", "elasticsearchservice-inventory-elasticsearch_versions"]
-end
-coreo_aws_rule "firehose-inventory-delivery_streams" do
-  service :Firehose
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Firehose Inventory"
-  description "This rule performs an inventory on the Firehose service using the list_delivery_streams function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_delivery_streams"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["elasticsearchservice-inventory-domain_names"]
 end
 
 coreo_aws_rule_runner "firehose-inventory-runner" do
   action :run
   service :Firehose
-  rules ["firehose-inventory-delivery_streams"]
+  rules []
 end
 coreo_aws_rule "gamelift-inventory-builds" do
   service :GameLift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "GameLift Inventory"
@@ -3715,23 +3196,9 @@ coreo_aws_rule "gamelift-inventory-builds" do
   raise_when [//]
   id_map ["builds.build_id"]
 end
-coreo_aws_rule "gamelift-inventory-ec2_instance_limits" do
-  service :GameLift
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "GameLift Inventory"
-  description "This rule performs an inventory on the GameLift service using the describe_ec2_instance_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_ec2_instance_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "gamelift-inventory-fleet_attributes" do
   service :GameLift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "GameLift Inventory"
@@ -3747,6 +3214,7 @@ coreo_aws_rule "gamelift-inventory-fleet_attributes" do
 end
 coreo_aws_rule "gamelift-inventory-game_session_queues" do
   service :GameLift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "GameLift Inventory"
@@ -3762,6 +3230,7 @@ coreo_aws_rule "gamelift-inventory-game_session_queues" do
 end
 coreo_aws_rule "gamelift-inventory-aliases" do
   service :GameLift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "GameLift Inventory"
@@ -3775,29 +3244,15 @@ coreo_aws_rule "gamelift-inventory-aliases" do
   raise_when [//]
   id_map ["aliases.alias_arn"]
 end
-coreo_aws_rule "gamelift-inventory-fleets" do
-  service :GameLift
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "GameLift Inventory"
-  description "This rule performs an inventory on the GameLift service using the list_fleets function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_fleets"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "gamelift-inventory-runner" do
   action :run
   service :GameLift
-  rules ["gamelift-inventory-builds", "gamelift-inventory-ec2_instance_limits", "gamelift-inventory-fleet_attributes", "gamelift-inventory-game_session_queues", "gamelift-inventory-aliases", "gamelift-inventory-fleets"]
+  rules ["gamelift-inventory-builds", "gamelift-inventory-fleet_attributes", "gamelift-inventory-game_session_queues", "gamelift-inventory-aliases"]
 end
 coreo_aws_rule "glacier-inventory-vaults" do
   service :Glacier
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Glacier Inventory"
@@ -3819,6 +3274,7 @@ coreo_aws_rule_runner "glacier-inventory-runner" do
 end
 coreo_aws_rule "iam-inventory-account_authorization_details" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3834,6 +3290,7 @@ coreo_aws_rule "iam-inventory-account_authorization_details" do
 end
 coreo_aws_rule "iam-inventory-access_keys" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3847,23 +3304,9 @@ coreo_aws_rule "iam-inventory-access_keys" do
   raise_when [//]
   id_map ["access_key_metadata.access_key_id"]
 end
-coreo_aws_rule "iam-inventory-account_aliases" do
-  service :IAM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "IAM Inventory"
-  description "This rule performs an inventory on the IAM service using the list_account_aliases function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_account_aliases"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "iam-inventory-instance_profiles" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3879,6 +3322,7 @@ coreo_aws_rule "iam-inventory-instance_profiles" do
 end
 coreo_aws_rule "iam-inventory-open_id_connect_providers" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3894,6 +3338,7 @@ coreo_aws_rule "iam-inventory-open_id_connect_providers" do
 end
 coreo_aws_rule "iam-inventory-policies" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3909,6 +3354,7 @@ coreo_aws_rule "iam-inventory-policies" do
 end
 coreo_aws_rule "iam-inventory-mfa_devices" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3924,6 +3370,7 @@ coreo_aws_rule "iam-inventory-mfa_devices" do
 end
 coreo_aws_rule "iam-inventory-roles" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3937,8 +3384,25 @@ coreo_aws_rule "iam-inventory-roles" do
   raise_when [//]
   id_map ["roles.arn"]
 end
+coreo_aws_rule "iam-inventory-ssh_public_keys" do
+  service :IAM
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "IAM Inventory"
+  description "This rule performs an inventory on the IAM service using the list_ssh_public_keys function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["list_ssh_public_keys"]
+  audit_objects ["ssh_public_keys.ssh_public_key_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["ssh_public_keys.ssh_public_key_id"]
+end
 coreo_aws_rule "iam-inventory-saml_providers" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3954,6 +3418,7 @@ coreo_aws_rule "iam-inventory-saml_providers" do
 end
 coreo_aws_rule "iam-inventory-server_certificates" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3969,6 +3434,7 @@ coreo_aws_rule "iam-inventory-server_certificates" do
 end
 coreo_aws_rule "iam-inventory-service_specific_credentials" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -3982,23 +3448,9 @@ coreo_aws_rule "iam-inventory-service_specific_credentials" do
   raise_when [//]
   id_map ["service_specific_credentials.service_specific_credential_id"]
 end
-coreo_aws_rule "iam-inventory-ssh_public_keys" do
-  service :IAM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "IAM Inventory"
-  description "This rule performs an inventory on the IAM service using the list_ssh_public_keys function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_ssh_public_keys"]
-  audit_objects ["ssh_public_keys.ssh_public_key_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["ssh_public_keys.ssh_public_key_id"]
-end
 coreo_aws_rule "iam-inventory-signing_certificates" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -4012,23 +3464,9 @@ coreo_aws_rule "iam-inventory-signing_certificates" do
   raise_when [//]
   id_map ["certificates.certificate_id"]
 end
-coreo_aws_rule "iam-inventory-virtual_mfa_devices" do
-  service :IAM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "IAM Inventory"
-  description "This rule performs an inventory on the IAM service using the list_virtual_mfa_devices function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_virtual_mfa_devices"]
-  audit_objects ["virtual_mfa_devices.user.arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["virtual_mfa_devices.user.arn"]
-end
 coreo_aws_rule "iam-inventory-groups" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -4042,8 +3480,25 @@ coreo_aws_rule "iam-inventory-groups" do
   raise_when [//]
   id_map ["groups.arn"]
 end
+coreo_aws_rule "iam-inventory-virtual_mfa_devices" do
+  service :IAM
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "IAM Inventory"
+  description "This rule performs an inventory on the IAM service using the list_virtual_mfa_devices function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["list_virtual_mfa_devices"]
+  audit_objects ["virtual_mfa_devices.user.arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["virtual_mfa_devices.user.arn"]
+end
 coreo_aws_rule "iam-inventory-users" do
   service :IAM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IAM Inventory"
@@ -4061,10 +3516,11 @@ end
 coreo_aws_rule_runner "iam-inventory-runner" do
   action :run
   service :IAM
-  rules ["iam-inventory-account_authorization_details", "iam-inventory-access_keys", "iam-inventory-account_aliases", "iam-inventory-instance_profiles", "iam-inventory-open_id_connect_providers", "iam-inventory-policies", "iam-inventory-mfa_devices", "iam-inventory-roles", "iam-inventory-saml_providers", "iam-inventory-server_certificates", "iam-inventory-service_specific_credentials", "iam-inventory-ssh_public_keys", "iam-inventory-signing_certificates", "iam-inventory-virtual_mfa_devices", "iam-inventory-groups", "iam-inventory-users"]
+  rules ["iam-inventory-account_authorization_details", "iam-inventory-access_keys", "iam-inventory-instance_profiles", "iam-inventory-open_id_connect_providers", "iam-inventory-policies", "iam-inventory-mfa_devices", "iam-inventory-roles", "iam-inventory-ssh_public_keys", "iam-inventory-saml_providers", "iam-inventory-server_certificates", "iam-inventory-service_specific_credentials", "iam-inventory-signing_certificates", "iam-inventory-groups", "iam-inventory-virtual_mfa_devices", "iam-inventory-users"]
 end
 coreo_aws_rule "importexport-inventory-jobs" do
   service :ImportExport
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ImportExport Inventory"
@@ -4084,53 +3540,9 @@ coreo_aws_rule_runner "importexport-inventory-runner" do
   service :ImportExport
   rules ["importexport-inventory-jobs"]
 end
-coreo_aws_rule "inspector-inventory-assessment_runs" do
-  service :Inspector
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Inspector Inventory"
-  description "This rule performs an inventory on the Inspector service using the list_assessment_runs function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_assessment_runs"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "inspector-inventory-assessment_targets" do
-  service :Inspector
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Inspector Inventory"
-  description "This rule performs an inventory on the Inspector service using the list_assessment_targets function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_assessment_targets"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "inspector-inventory-assessment_templates" do
-  service :Inspector
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Inspector Inventory"
-  description "This rule performs an inventory on the Inspector service using the list_assessment_templates function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_assessment_templates"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "inspector-inventory-event_subscriptions" do
   service :Inspector
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Inspector Inventory"
@@ -4144,44 +3556,15 @@ coreo_aws_rule "inspector-inventory-event_subscriptions" do
   raise_when [//]
   id_map ["subscriptions.resource_arn"]
 end
-coreo_aws_rule "inspector-inventory-findings" do
-  service :Inspector
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Inspector Inventory"
-  description "This rule performs an inventory on the Inspector service using the list_findings function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_findings"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "inspector-inventory-rules_packages" do
-  service :Inspector
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Inspector Inventory"
-  description "This rule performs an inventory on the Inspector service using the list_rules_packages function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_rules_packages"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "inspector-inventory-runner" do
   action :run
   service :Inspector
-  rules ["inspector-inventory-assessment_runs", "inspector-inventory-assessment_targets", "inspector-inventory-assessment_templates", "inspector-inventory-event_subscriptions", "inspector-inventory-findings", "inspector-inventory-rules_packages"]
+  rules ["inspector-inventory-event_subscriptions"]
 end
 coreo_aws_rule "iot-inventory-certificates" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4197,6 +3580,7 @@ coreo_aws_rule "iot-inventory-certificates" do
 end
 coreo_aws_rule "iot-inventory-policies" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4212,6 +3596,7 @@ coreo_aws_rule "iot-inventory-policies" do
 end
 coreo_aws_rule "iot-inventory-ca_certificates" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4227,6 +3612,7 @@ coreo_aws_rule "iot-inventory-ca_certificates" do
 end
 coreo_aws_rule "iot-inventory-outgoing_certificates" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4242,6 +3628,7 @@ coreo_aws_rule "iot-inventory-outgoing_certificates" do
 end
 coreo_aws_rule "iot-inventory-thing_types" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4257,6 +3644,7 @@ coreo_aws_rule "iot-inventory-thing_types" do
 end
 coreo_aws_rule "iot-inventory-things" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4272,6 +3660,7 @@ coreo_aws_rule "iot-inventory-things" do
 end
 coreo_aws_rule "iot-inventory-topic_rules" do
   service :IoT
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "IoT Inventory"
@@ -4293,6 +3682,7 @@ coreo_aws_rule_runner "iot-inventory-runner" do
 end
 coreo_aws_rule "kms-inventory-aliases" do
   service :KMS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "KMS Inventory"
@@ -4308,6 +3698,7 @@ coreo_aws_rule "kms-inventory-aliases" do
 end
 coreo_aws_rule "kms-inventory-keys" do
   service :KMS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "KMS Inventory"
@@ -4327,44 +3718,15 @@ coreo_aws_rule_runner "kms-inventory-runner" do
   service :KMS
   rules ["kms-inventory-aliases", "kms-inventory-keys"]
 end
-coreo_aws_rule "kinesis-inventory-limits" do
-  service :Kinesis
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Kinesis Inventory"
-  description "This rule performs an inventory on the Kinesis service using the describe_limits function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_limits"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "kinesis-inventory-streams" do
-  service :Kinesis
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Kinesis Inventory"
-  description "This rule performs an inventory on the Kinesis service using the list_streams function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_streams"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "kinesis-inventory-runner" do
   action :run
   service :Kinesis
-  rules ["kinesis-inventory-limits", "kinesis-inventory-streams"]
+  rules []
 end
 coreo_aws_rule "kinesisanalytics-inventory-applications" do
   service :KinesisAnalytics
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "KinesisAnalytics Inventory"
@@ -4384,23 +3746,9 @@ coreo_aws_rule_runner "kinesisanalytics-inventory-runner" do
   service :KinesisAnalytics
   rules ["kinesisanalytics-inventory-applications"]
 end
-coreo_aws_rule "lambda-inventory-account_settings" do
-  service :Lambda
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Lambda Inventory"
-  description "This rule performs an inventory on the Lambda service using the get_account_settings function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_account_settings"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "lambda-inventory-event_source_mappings" do
   service :Lambda
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lambda Inventory"
@@ -4416,6 +3764,7 @@ coreo_aws_rule "lambda-inventory-event_source_mappings" do
 end
 coreo_aws_rule "lambda-inventory-functions" do
   service :Lambda
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lambda Inventory"
@@ -4433,10 +3782,11 @@ end
 coreo_aws_rule_runner "lambda-inventory-runner" do
   action :run
   service :Lambda
-  rules ["lambda-inventory-account_settings", "lambda-inventory-event_source_mappings", "lambda-inventory-functions"]
+  rules ["lambda-inventory-event_source_mappings", "lambda-inventory-functions"]
 end
 coreo_aws_rule "lambdapreview-inventory-functions" do
   service :LambdaPreview
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "LambdaPreview Inventory"
@@ -4452,6 +3802,7 @@ coreo_aws_rule "lambdapreview-inventory-functions" do
 end
 coreo_aws_rule "lambdapreview-inventory-event_sources" do
   service :LambdaPreview
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "LambdaPreview Inventory"
@@ -4471,104 +3822,15 @@ coreo_aws_rule_runner "lambdapreview-inventory-runner" do
   service :LambdaPreview
   rules ["lambdapreview-inventory-functions", "lambdapreview-inventory-event_sources"]
 end
-coreo_aws_rule "lexmodelbuildingservice-inventory-bots" do
-  service :LexModelBuildingService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "LexModelBuildingService Inventory"
-  description "This rule performs an inventory on the LexModelBuildingService service using the get_bots function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_bots"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "lexmodelbuildingservice-inventory-builtin_intents" do
-  service :LexModelBuildingService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "LexModelBuildingService Inventory"
-  description "This rule performs an inventory on the LexModelBuildingService service using the get_builtin_intents function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_builtin_intents"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "lexmodelbuildingservice-inventory-builtin_slot_types" do
-  service :LexModelBuildingService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "LexModelBuildingService Inventory"
-  description "This rule performs an inventory on the LexModelBuildingService service using the get_builtin_slot_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_builtin_slot_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "lexmodelbuildingservice-inventory-intents" do
-  service :LexModelBuildingService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "LexModelBuildingService Inventory"
-  description "This rule performs an inventory on the LexModelBuildingService service using the get_intents function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_intents"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "lexmodelbuildingservice-inventory-slot_types" do
-  service :LexModelBuildingService
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "LexModelBuildingService Inventory"
-  description "This rule performs an inventory on the LexModelBuildingService service using the get_slot_types function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_slot_types"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "lexmodelbuildingservice-inventory-runner" do
   action :run
   service :LexModelBuildingService
-  rules ["lexmodelbuildingservice-inventory-bots", "lexmodelbuildingservice-inventory-builtin_intents", "lexmodelbuildingservice-inventory-builtin_slot_types", "lexmodelbuildingservice-inventory-intents", "lexmodelbuildingservice-inventory-slot_types"]
-end
-coreo_aws_rule "lightsail-inventory-active_names" do
-  service :Lightsail
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Lightsail Inventory"
-  description "This rule performs an inventory on the Lightsail service using the get_active_names function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_active_names"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules []
 end
 coreo_aws_rule "lightsail-inventory-blueprints" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4584,6 +3846,7 @@ coreo_aws_rule "lightsail-inventory-blueprints" do
 end
 coreo_aws_rule "lightsail-inventory-bundles" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4599,6 +3862,7 @@ coreo_aws_rule "lightsail-inventory-bundles" do
 end
 coreo_aws_rule "lightsail-inventory-domains" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4614,6 +3878,7 @@ coreo_aws_rule "lightsail-inventory-domains" do
 end
 coreo_aws_rule "lightsail-inventory-instance_snapshots" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4629,6 +3894,7 @@ coreo_aws_rule "lightsail-inventory-instance_snapshots" do
 end
 coreo_aws_rule "lightsail-inventory-instances" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4644,6 +3910,7 @@ coreo_aws_rule "lightsail-inventory-instances" do
 end
 coreo_aws_rule "lightsail-inventory-key_pairs" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4659,6 +3926,7 @@ coreo_aws_rule "lightsail-inventory-key_pairs" do
 end
 coreo_aws_rule "lightsail-inventory-operations" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4674,6 +3942,7 @@ coreo_aws_rule "lightsail-inventory-operations" do
 end
 coreo_aws_rule "lightsail-inventory-regions" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4689,6 +3958,7 @@ coreo_aws_rule "lightsail-inventory-regions" do
 end
 coreo_aws_rule "lightsail-inventory-static_ips" do
   service :Lightsail
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Lightsail Inventory"
@@ -4706,10 +3976,11 @@ end
 coreo_aws_rule_runner "lightsail-inventory-runner" do
   action :run
   service :Lightsail
-  rules ["lightsail-inventory-active_names", "lightsail-inventory-blueprints", "lightsail-inventory-bundles", "lightsail-inventory-domains", "lightsail-inventory-instance_snapshots", "lightsail-inventory-instances", "lightsail-inventory-key_pairs", "lightsail-inventory-operations", "lightsail-inventory-regions", "lightsail-inventory-static_ips"]
+  rules ["lightsail-inventory-blueprints", "lightsail-inventory-bundles", "lightsail-inventory-domains", "lightsail-inventory-instance_snapshots", "lightsail-inventory-instances", "lightsail-inventory-key_pairs", "lightsail-inventory-operations", "lightsail-inventory-regions", "lightsail-inventory-static_ips"]
 end
 coreo_aws_rule "machinelearning-inventory-batch_predictions" do
   service :MachineLearning
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "MachineLearning Inventory"
@@ -4725,6 +3996,7 @@ coreo_aws_rule "machinelearning-inventory-batch_predictions" do
 end
 coreo_aws_rule "machinelearning-inventory-data_sources" do
   service :MachineLearning
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "MachineLearning Inventory"
@@ -4740,6 +4012,7 @@ coreo_aws_rule "machinelearning-inventory-data_sources" do
 end
 coreo_aws_rule "machinelearning-inventory-evaluations" do
   service :MachineLearning
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "MachineLearning Inventory"
@@ -4755,6 +4028,7 @@ coreo_aws_rule "machinelearning-inventory-evaluations" do
 end
 coreo_aws_rule "machinelearning-inventory-ml_models" do
   service :MachineLearning
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "MachineLearning Inventory"
@@ -4774,23 +4048,9 @@ coreo_aws_rule_runner "machinelearning-inventory-runner" do
   service :MachineLearning
   rules ["machinelearning-inventory-batch_predictions", "machinelearning-inventory-data_sources", "machinelearning-inventory-evaluations", "machinelearning-inventory-ml_models"]
 end
-coreo_aws_rule "opsworks-inventory-stacks" do
-  service :OpsWorks
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "OpsWorks Inventory"
-  description "This rule performs an inventory on the OpsWorks service using the describe_stacks function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_stacks"]
-  audit_objects ["stacks.arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["stacks.arn"]
-end
 coreo_aws_rule "opsworks-inventory-service_errors" do
   service :OpsWorks
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "OpsWorks Inventory"
@@ -4806,6 +4066,7 @@ coreo_aws_rule "opsworks-inventory-service_errors" do
 end
 coreo_aws_rule "opsworks-inventory-user_profiles" do
   service :OpsWorks
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "OpsWorks Inventory"
@@ -4819,29 +4080,31 @@ coreo_aws_rule "opsworks-inventory-user_profiles" do
   raise_when [//]
   id_map ["user_profiles.iam_user_arn"]
 end
+coreo_aws_rule "opsworks-inventory-stacks" do
+  service :OpsWorks
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "OpsWorks Inventory"
+  description "This rule performs an inventory on the OpsWorks service using the describe_stacks function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_stacks"]
+  audit_objects ["stacks.arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["stacks.arn"]
+end
 
 coreo_aws_rule_runner "opsworks-inventory-runner" do
   action :run
   service :OpsWorks
-  rules ["opsworks-inventory-stacks", "opsworks-inventory-service_errors", "opsworks-inventory-user_profiles"]
-end
-coreo_aws_rule "opsworkscm-inventory-account_attributes" do
-  service :OpsWorksCM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "OpsWorksCM Inventory"
-  description "This rule performs an inventory on the OpsWorksCM service using the describe_account_attributes function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_account_attributes"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["opsworks-inventory-service_errors", "opsworks-inventory-user_profiles", "opsworks-inventory-stacks"]
 end
 coreo_aws_rule "opsworkscm-inventory-backups" do
   service :OpsWorksCM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "OpsWorksCM Inventory"
@@ -4857,6 +4120,7 @@ coreo_aws_rule "opsworkscm-inventory-backups" do
 end
 coreo_aws_rule "opsworkscm-inventory-servers" do
   service :OpsWorksCM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "OpsWorksCM Inventory"
@@ -4874,10 +4138,11 @@ end
 coreo_aws_rule_runner "opsworkscm-inventory-runner" do
   action :run
   service :OpsWorksCM
-  rules ["opsworkscm-inventory-account_attributes", "opsworkscm-inventory-backups", "opsworkscm-inventory-servers"]
+  rules ["opsworkscm-inventory-backups", "opsworkscm-inventory-servers"]
 end
 coreo_aws_rule "polly-inventory-voices" do
   service :Polly
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Polly Inventory"
@@ -4893,6 +4158,7 @@ coreo_aws_rule "polly-inventory-voices" do
 end
 coreo_aws_rule "polly-inventory-lexicons" do
   service :Polly
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Polly Inventory"
@@ -4912,173 +4178,9 @@ coreo_aws_rule_runner "polly-inventory-runner" do
   service :Polly
   rules ["polly-inventory-voices", "polly-inventory-lexicons"]
 end
-coreo_aws_rule "rds-inventory-db_cluster_parameter_groups" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_cluster_parameter_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_cluster_parameter_groups"]
-  audit_objects ["db_cluster_parameter_groups.db_cluster_parameter_group_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_cluster_parameter_groups.db_cluster_parameter_group_arn"]
-end
-coreo_aws_rule "rds-inventory-db_cluster_snapshots" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_cluster_snapshots function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_cluster_snapshots"]
-  audit_objects ["db_cluster_snapshots.db_cluster_snapshot_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_cluster_snapshots.db_cluster_snapshot_arn"]
-end
-coreo_aws_rule "rds-inventory-db_clusters" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_clusters function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_clusters"]
-  audit_objects ["db_clusters.db_cluster_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_clusters.db_cluster_arn"]
-end
-coreo_aws_rule "rds-inventory-db_engine_versions" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_engine_versions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_engine_versions"]
-  audit_objects ["db_engine_versions.default_character_set.character_set_name"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_engine_versions.default_character_set.character_set_name"]
-end
-coreo_aws_rule "rds-inventory-db_instances" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_instances function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_instances"]
-  audit_objects ["db_instances.db_subnet_group.db_subnet_group_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_instances.db_subnet_group.db_subnet_group_arn"]
-end
-coreo_aws_rule "rds-inventory-db_parameter_groups" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_parameter_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_parameter_groups"]
-  audit_objects ["db_parameter_groups.db_parameter_group_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_parameter_groups.db_parameter_group_arn"]
-end
-coreo_aws_rule "rds-inventory-db_security_groups" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_security_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_security_groups"]
-  audit_objects ["db_security_groups.db_security_group_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_security_groups.db_security_group_arn"]
-end
-coreo_aws_rule "rds-inventory-db_snapshots" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_snapshots function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_snapshots"]
-  audit_objects ["db_snapshots.tde_credential_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_snapshots.tde_credential_arn"]
-end
-coreo_aws_rule "rds-inventory-db_subnet_groups" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_db_subnet_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_db_subnet_groups"]
-  audit_objects ["db_subnet_groups.db_subnet_group_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["db_subnet_groups.db_subnet_group_arn"]
-end
-coreo_aws_rule "rds-inventory-option_groups" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_option_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_option_groups"]
-  audit_objects ["option_groups_list.option_group_arn"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["option_groups_list.option_group_arn"]
-end
-coreo_aws_rule "rds-inventory-pending_maintenance_actions" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_pending_maintenance_actions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_pending_maintenance_actions"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "rds-inventory-reserved_db_instances" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5094,6 +4196,7 @@ coreo_aws_rule "rds-inventory-reserved_db_instances" do
 end
 coreo_aws_rule "rds-inventory-reserved_db_instances_offerings" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5109,6 +4212,7 @@ coreo_aws_rule "rds-inventory-reserved_db_instances_offerings" do
 end
 coreo_aws_rule "rds-inventory-source_regions" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5124,6 +4228,7 @@ coreo_aws_rule "rds-inventory-source_regions" do
 end
 coreo_aws_rule "rds-inventory-account_attributes" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5139,6 +4244,7 @@ coreo_aws_rule "rds-inventory-account_attributes" do
 end
 coreo_aws_rule "rds-inventory-certificates" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5152,23 +4258,9 @@ coreo_aws_rule "rds-inventory-certificates" do
   raise_when [//]
   id_map ["certificates.certificate_arn"]
 end
-coreo_aws_rule "rds-inventory-event_categories" do
-  service :RDS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "RDS Inventory"
-  description "This rule performs an inventory on the RDS service using the describe_event_categories function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_event_categories"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "rds-inventory-event_subscriptions" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5184,6 +4276,7 @@ coreo_aws_rule "rds-inventory-event_subscriptions" do
 end
 coreo_aws_rule "rds-inventory-events" do
   service :RDS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "RDS Inventory"
@@ -5197,14 +4290,175 @@ coreo_aws_rule "rds-inventory-events" do
   raise_when [//]
   id_map ["events.source_arn"]
 end
+coreo_aws_rule "rds-inventory-db_cluster_parameter_groups" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_cluster_parameter_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_cluster_parameter_groups"]
+  audit_objects ["db_cluster_parameter_groups.db_cluster_parameter_group_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_cluster_parameter_groups.db_cluster_parameter_group_arn"]
+end
+coreo_aws_rule "rds-inventory-db_cluster_snapshots" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_cluster_snapshots function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_cluster_snapshots"]
+  audit_objects ["db_cluster_snapshots.db_cluster_snapshot_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_cluster_snapshots.db_cluster_snapshot_arn"]
+end
+coreo_aws_rule "rds-inventory-db_clusters" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_clusters function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_clusters"]
+  audit_objects ["db_clusters.db_cluster_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_clusters.db_cluster_arn"]
+end
+coreo_aws_rule "rds-inventory-db_engine_versions" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_engine_versions function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_engine_versions"]
+  audit_objects ["db_engine_versions.default_character_set.character_set_name"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_engine_versions.default_character_set.character_set_name"]
+end
+coreo_aws_rule "rds-inventory-db_instances" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_instances function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_instances"]
+  audit_objects ["db_instances.db_subnet_group.db_subnet_group_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_instances.db_subnet_group.db_subnet_group_arn"]
+end
+coreo_aws_rule "rds-inventory-db_parameter_groups" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_parameter_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_parameter_groups"]
+  audit_objects ["db_parameter_groups.db_parameter_group_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_parameter_groups.db_parameter_group_arn"]
+end
+coreo_aws_rule "rds-inventory-db_security_groups" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_security_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_security_groups"]
+  audit_objects ["db_security_groups.db_security_group_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_security_groups.db_security_group_arn"]
+end
+coreo_aws_rule "rds-inventory-db_snapshots" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_snapshots function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_snapshots"]
+  audit_objects ["db_snapshots.tde_credential_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_snapshots.tde_credential_arn"]
+end
+coreo_aws_rule "rds-inventory-db_subnet_groups" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_db_subnet_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_db_subnet_groups"]
+  audit_objects ["db_subnet_groups.db_subnet_group_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["db_subnet_groups.db_subnet_group_arn"]
+end
+coreo_aws_rule "rds-inventory-option_groups" do
+  service :RDS
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "RDS Inventory"
+  description "This rule performs an inventory on the RDS service using the describe_option_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_option_groups"]
+  audit_objects ["option_groups_list.option_group_arn"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["option_groups_list.option_group_arn"]
+end
 
 coreo_aws_rule_runner "rds-inventory-runner" do
   action :run
   service :RDS
-  rules ["rds-inventory-db_cluster_parameter_groups", "rds-inventory-db_cluster_snapshots", "rds-inventory-db_clusters", "rds-inventory-db_engine_versions", "rds-inventory-db_instances", "rds-inventory-db_parameter_groups", "rds-inventory-db_security_groups", "rds-inventory-db_snapshots", "rds-inventory-db_subnet_groups", "rds-inventory-option_groups", "rds-inventory-pending_maintenance_actions", "rds-inventory-reserved_db_instances", "rds-inventory-reserved_db_instances_offerings", "rds-inventory-source_regions", "rds-inventory-account_attributes", "rds-inventory-certificates", "rds-inventory-event_categories", "rds-inventory-event_subscriptions", "rds-inventory-events"]
+  rules ["rds-inventory-reserved_db_instances", "rds-inventory-reserved_db_instances_offerings", "rds-inventory-source_regions", "rds-inventory-account_attributes", "rds-inventory-certificates", "rds-inventory-event_subscriptions", "rds-inventory-events", "rds-inventory-db_cluster_parameter_groups", "rds-inventory-db_cluster_snapshots", "rds-inventory-db_clusters", "rds-inventory-db_engine_versions", "rds-inventory-db_instances", "rds-inventory-db_parameter_groups", "rds-inventory-db_security_groups", "rds-inventory-db_snapshots", "rds-inventory-db_subnet_groups", "rds-inventory-option_groups"]
 end
 coreo_aws_rule "redshift-inventory-event_categories" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5220,6 +4474,7 @@ coreo_aws_rule "redshift-inventory-event_categories" do
 end
 coreo_aws_rule "redshift-inventory-event_subscriptions" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5235,6 +4490,7 @@ coreo_aws_rule "redshift-inventory-event_subscriptions" do
 end
 coreo_aws_rule "redshift-inventory-events" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5250,6 +4506,7 @@ coreo_aws_rule "redshift-inventory-events" do
 end
 coreo_aws_rule "redshift-inventory-clusters" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5265,6 +4522,7 @@ coreo_aws_rule "redshift-inventory-clusters" do
 end
 coreo_aws_rule "redshift-inventory-cluster_parameter_groups" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5280,6 +4538,7 @@ coreo_aws_rule "redshift-inventory-cluster_parameter_groups" do
 end
 coreo_aws_rule "redshift-inventory-cluster_snapshots" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5295,6 +4554,7 @@ coreo_aws_rule "redshift-inventory-cluster_snapshots" do
 end
 coreo_aws_rule "redshift-inventory-cluster_subnet_groups" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5308,38 +4568,9 @@ coreo_aws_rule "redshift-inventory-cluster_subnet_groups" do
   raise_when [//]
   id_map ["cluster_subnet_groups.vpc_id"]
 end
-coreo_aws_rule "redshift-inventory-cluster_versions" do
-  service :Redshift
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Redshift Inventory"
-  description "This rule performs an inventory on the Redshift service using the describe_cluster_versions function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_cluster_versions"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "redshift-inventory-hsm_client_certificates" do
-  service :Redshift
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Redshift Inventory"
-  description "This rule performs an inventory on the Redshift service using the describe_hsm_client_certificates function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_hsm_client_certificates"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "redshift-inventory-hsm_configurations" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5353,23 +4584,9 @@ coreo_aws_rule "redshift-inventory-hsm_configurations" do
   raise_when [//]
   id_map ["hsm_configurations.hsm_partition_name"]
 end
-coreo_aws_rule "redshift-inventory-orderable_cluster_options" do
-  service :Redshift
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Redshift Inventory"
-  description "This rule performs an inventory on the Redshift service using the describe_orderable_cluster_options function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_orderable_cluster_options"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "redshift-inventory-reserved_node_offerings" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5385,6 +4602,7 @@ coreo_aws_rule "redshift-inventory-reserved_node_offerings" do
 end
 coreo_aws_rule "redshift-inventory-reserved_nodes" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5400,6 +4618,7 @@ coreo_aws_rule "redshift-inventory-reserved_nodes" do
 end
 coreo_aws_rule "redshift-inventory-snapshot_copy_grants" do
   service :Redshift
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Redshift Inventory"
@@ -5417,31 +4636,17 @@ end
 coreo_aws_rule_runner "redshift-inventory-runner" do
   action :run
   service :Redshift
-  rules ["redshift-inventory-event_categories", "redshift-inventory-event_subscriptions", "redshift-inventory-events", "redshift-inventory-clusters", "redshift-inventory-cluster_parameter_groups", "redshift-inventory-cluster_snapshots", "redshift-inventory-cluster_subnet_groups", "redshift-inventory-cluster_versions", "redshift-inventory-hsm_client_certificates", "redshift-inventory-hsm_configurations", "redshift-inventory-orderable_cluster_options", "redshift-inventory-reserved_node_offerings", "redshift-inventory-reserved_nodes", "redshift-inventory-snapshot_copy_grants"]
-end
-coreo_aws_rule "rekognition-inventory-collections" do
-  service :Rekognition
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Rekognition Inventory"
-  description "This rule performs an inventory on the Rekognition service using the list_collections function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_collections"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["redshift-inventory-event_categories", "redshift-inventory-event_subscriptions", "redshift-inventory-events", "redshift-inventory-clusters", "redshift-inventory-cluster_parameter_groups", "redshift-inventory-cluster_snapshots", "redshift-inventory-cluster_subnet_groups", "redshift-inventory-hsm_configurations", "redshift-inventory-reserved_node_offerings", "redshift-inventory-reserved_nodes", "redshift-inventory-snapshot_copy_grants"]
 end
 
 coreo_aws_rule_runner "rekognition-inventory-runner" do
   action :run
   service :Rekognition
-  rules ["rekognition-inventory-collections"]
+  rules []
 end
 coreo_aws_rule "resourcegroupstaggingapi-inventory-resources" do
   service :ResourceGroupsTaggingAPI
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ResourceGroupsTaggingAPI Inventory"
@@ -5455,44 +4660,15 @@ coreo_aws_rule "resourcegroupstaggingapi-inventory-resources" do
   raise_when [//]
   id_map ["resource_tag_mapping_list.resource_arn"]
 end
-coreo_aws_rule "resourcegroupstaggingapi-inventory-tag_keys" do
-  service :ResourceGroupsTaggingAPI
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "ResourceGroupsTaggingAPI Inventory"
-  description "This rule performs an inventory on the ResourceGroupsTaggingAPI service using the get_tag_keys function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_tag_keys"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "resourcegroupstaggingapi-inventory-runner" do
   action :run
   service :ResourceGroupsTaggingAPI
-  rules ["resourcegroupstaggingapi-inventory-resources", "resourcegroupstaggingapi-inventory-tag_keys"]
-end
-coreo_aws_rule "route53-inventory-checker_ip_ranges" do
-  service :Route53
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "Route53 Inventory"
-  description "This rule performs an inventory on the Route53 service using the get_checker_ip_ranges function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_checker_ip_ranges"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["resourcegroupstaggingapi-inventory-resources"]
 end
 coreo_aws_rule "route53-inventory-geo_locations" do
   service :Route53
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53 Inventory"
@@ -5508,6 +4684,7 @@ coreo_aws_rule "route53-inventory-geo_locations" do
 end
 coreo_aws_rule "route53-inventory-health_checks" do
   service :Route53
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53 Inventory"
@@ -5523,6 +4700,7 @@ coreo_aws_rule "route53-inventory-health_checks" do
 end
 coreo_aws_rule "route53-inventory-hosted_zones" do
   service :Route53
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53 Inventory"
@@ -5538,6 +4716,7 @@ coreo_aws_rule "route53-inventory-hosted_zones" do
 end
 coreo_aws_rule "route53-inventory-reusable_delegation_sets" do
   service :Route53
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53 Inventory"
@@ -5553,6 +4732,7 @@ coreo_aws_rule "route53-inventory-reusable_delegation_sets" do
 end
 coreo_aws_rule "route53-inventory-traffic_policies" do
   service :Route53
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53 Inventory"
@@ -5568,6 +4748,7 @@ coreo_aws_rule "route53-inventory-traffic_policies" do
 end
 coreo_aws_rule "route53-inventory-traffic_policy_instances" do
   service :Route53
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53 Inventory"
@@ -5585,10 +4766,11 @@ end
 coreo_aws_rule_runner "route53-inventory-runner" do
   action :run
   service :Route53
-  rules ["route53-inventory-checker_ip_ranges", "route53-inventory-geo_locations", "route53-inventory-health_checks", "route53-inventory-hosted_zones", "route53-inventory-reusable_delegation_sets", "route53-inventory-traffic_policies", "route53-inventory-traffic_policy_instances"]
+  rules ["route53-inventory-geo_locations", "route53-inventory-health_checks", "route53-inventory-hosted_zones", "route53-inventory-reusable_delegation_sets", "route53-inventory-traffic_policies", "route53-inventory-traffic_policy_instances"]
 end
 coreo_aws_rule "route53domains-inventory-domains" do
   service :Route53Domains
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53Domains Inventory"
@@ -5604,6 +4786,7 @@ coreo_aws_rule "route53domains-inventory-domains" do
 end
 coreo_aws_rule "route53domains-inventory-operations" do
   service :Route53Domains
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Route53Domains Inventory"
@@ -5625,6 +4808,7 @@ coreo_aws_rule_runner "route53domains-inventory-runner" do
 end
 coreo_aws_rule "s3-inventory-buckets" do
   service :S3
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "S3 Inventory"
@@ -5646,6 +4830,7 @@ coreo_aws_rule_runner "s3-inventory-runner" do
 end
 coreo_aws_rule "ses-inventory-identities" do
   service :SES
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SES Inventory"
@@ -5659,89 +4844,15 @@ coreo_aws_rule "ses-inventory-identities" do
   raise_when [//]
   id_map ["identities"]
 end
-coreo_aws_rule "ses-inventory-send_statistics" do
-  service :SES
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SES Inventory"
-  description "This rule performs an inventory on the SES service using the get_send_statistics function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_send_statistics"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "ses-inventory-configuration_sets" do
-  service :SES
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SES Inventory"
-  description "This rule performs an inventory on the SES service using the list_configuration_sets function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_configuration_sets"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "ses-inventory-receipt_filters" do
-  service :SES
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SES Inventory"
-  description "This rule performs an inventory on the SES service using the list_receipt_filters function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_receipt_filters"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "ses-inventory-receipt_rule_sets" do
-  service :SES
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SES Inventory"
-  description "This rule performs an inventory on the SES service using the list_receipt_rule_sets function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_receipt_rule_sets"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
-coreo_aws_rule "ses-inventory-verified_email_addresses" do
-  service :SES
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SES Inventory"
-  description "This rule performs an inventory on the SES service using the list_verified_email_addresses function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_verified_email_addresses"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "ses-inventory-runner" do
   action :run
   service :SES
-  rules ["ses-inventory-identities", "ses-inventory-send_statistics", "ses-inventory-configuration_sets", "ses-inventory-receipt_filters", "ses-inventory-receipt_rule_sets", "ses-inventory-verified_email_addresses"]
+  rules ["ses-inventory-identities"]
 end
 coreo_aws_rule "sms-inventory-connectors" do
   service :SMS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SMS Inventory"
@@ -5757,6 +4868,7 @@ coreo_aws_rule "sms-inventory-connectors" do
 end
 coreo_aws_rule "sms-inventory-replication_jobs" do
   service :SMS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SMS Inventory"
@@ -5772,6 +4884,7 @@ coreo_aws_rule "sms-inventory-replication_jobs" do
 end
 coreo_aws_rule "sms-inventory-servers" do
   service :SMS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SMS Inventory"
@@ -5791,23 +4904,9 @@ coreo_aws_rule_runner "sms-inventory-runner" do
   service :SMS
   rules ["sms-inventory-connectors", "sms-inventory-replication_jobs", "sms-inventory-servers"]
 end
-coreo_aws_rule "sns-inventory-sms_attributes" do
-  service :SNS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SNS Inventory"
-  description "This rule performs an inventory on the SNS service using the get_sms_attributes function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["get_sms_attributes"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "sns-inventory-platform_applications" do
   service :SNS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SNS Inventory"
@@ -5823,6 +4922,7 @@ coreo_aws_rule "sns-inventory-platform_applications" do
 end
 coreo_aws_rule "sns-inventory-subscriptions" do
   service :SNS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SNS Inventory"
@@ -5838,6 +4938,7 @@ coreo_aws_rule "sns-inventory-subscriptions" do
 end
 coreo_aws_rule "sns-inventory-topics" do
   service :SNS
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SNS Inventory"
@@ -5855,91 +4956,17 @@ end
 coreo_aws_rule_runner "sns-inventory-runner" do
   action :run
   service :SNS
-  rules ["sns-inventory-sms_attributes", "sns-inventory-platform_applications", "sns-inventory-subscriptions", "sns-inventory-topics"]
-end
-coreo_aws_rule "sqs-inventory-queues" do
-  service :SQS
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SQS Inventory"
-  description "This rule performs an inventory on the SQS service using the list_queues function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_queues"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
+  rules ["sns-inventory-platform_applications", "sns-inventory-subscriptions", "sns-inventory-topics"]
 end
 
 coreo_aws_rule_runner "sqs-inventory-runner" do
   action :run
   service :SQS
-  rules ["sqs-inventory-queues"]
-end
-coreo_aws_rule "ssm-inventory-maintenance_windows" do
-  service :SSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SSM Inventory"
-  description "This rule performs an inventory on the SSM service using the describe_maintenance_windows function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_maintenance_windows"]
-  audit_objects ["window_identities.window_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["window_identities.window_id"]
-end
-coreo_aws_rule "ssm-inventory-parameters" do
-  service :SSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SSM Inventory"
-  description "This rule performs an inventory on the SSM service using the describe_parameters function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_parameters"]
-  audit_objects ["parameters.key_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["parameters.key_id"]
-end
-coreo_aws_rule "ssm-inventory-patch_baselines" do
-  service :SSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SSM Inventory"
-  description "This rule performs an inventory on the SSM service using the describe_patch_baselines function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_patch_baselines"]
-  audit_objects ["baseline_identities.baseline_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["baseline_identities.baseline_id"]
-end
-coreo_aws_rule "ssm-inventory-patch_groups" do
-  service :SSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SSM Inventory"
-  description "This rule performs an inventory on the SSM service using the describe_patch_groups function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["describe_patch_groups"]
-  audit_objects ["mappings.baseline_identity.baseline_id"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["mappings.baseline_identity.baseline_id"]
+  rules []
 end
 coreo_aws_rule "ssm-inventory-associations" do
   service :SSM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SSM Inventory"
@@ -5955,6 +4982,7 @@ coreo_aws_rule "ssm-inventory-associations" do
 end
 coreo_aws_rule "ssm-inventory-command_invocations" do
   service :SSM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SSM Inventory"
@@ -5970,6 +4998,7 @@ coreo_aws_rule "ssm-inventory-command_invocations" do
 end
 coreo_aws_rule "ssm-inventory-commands" do
   service :SSM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SSM Inventory"
@@ -5983,23 +5012,9 @@ coreo_aws_rule "ssm-inventory-commands" do
   raise_when [//]
   id_map ["commands.notification_config.notification_arn"]
 end
-coreo_aws_rule "ssm-inventory-documents" do
-  service :SSM
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SSM Inventory"
-  description "This rule performs an inventory on the SSM service using the list_documents function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_documents"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 coreo_aws_rule "ssm-inventory-activations" do
   service :SSM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SSM Inventory"
@@ -6015,6 +5030,7 @@ coreo_aws_rule "ssm-inventory-activations" do
 end
 coreo_aws_rule "ssm-inventory-automation_executions" do
   service :SSM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SSM Inventory"
@@ -6030,6 +5046,7 @@ coreo_aws_rule "ssm-inventory-automation_executions" do
 end
 coreo_aws_rule "ssm-inventory-available_patches" do
   service :SSM
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "SSM Inventory"
@@ -6043,14 +5060,79 @@ coreo_aws_rule "ssm-inventory-available_patches" do
   raise_when [//]
   id_map ["patches.id"]
 end
+coreo_aws_rule "ssm-inventory-maintenance_windows" do
+  service :SSM
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "SSM Inventory"
+  description "This rule performs an inventory on the SSM service using the describe_maintenance_windows function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_maintenance_windows"]
+  audit_objects ["window_identities.window_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["window_identities.window_id"]
+end
+coreo_aws_rule "ssm-inventory-parameters" do
+  service :SSM
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "SSM Inventory"
+  description "This rule performs an inventory on the SSM service using the describe_parameters function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_parameters"]
+  audit_objects ["parameters.key_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["parameters.key_id"]
+end
+coreo_aws_rule "ssm-inventory-patch_baselines" do
+  service :SSM
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "SSM Inventory"
+  description "This rule performs an inventory on the SSM service using the describe_patch_baselines function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_patch_baselines"]
+  audit_objects ["baseline_identities.baseline_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["baseline_identities.baseline_id"]
+end
+coreo_aws_rule "ssm-inventory-patch_groups" do
+  service :SSM
+  action :define
+  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
+  include_violations_in_count false
+  display_name "SSM Inventory"
+  description "This rule performs an inventory on the SSM service using the describe_patch_groups function"
+  category "Inventory"
+  suggested_action "None."
+  level "Informational"
+  objectives ["describe_patch_groups"]
+  audit_objects ["mappings.baseline_identity.baseline_id"]
+  operators ["=~"]
+  raise_when [//]
+  id_map ["mappings.baseline_identity.baseline_id"]
+end
 
 coreo_aws_rule_runner "ssm-inventory-runner" do
   action :run
   service :SSM
-  rules ["ssm-inventory-maintenance_windows", "ssm-inventory-parameters", "ssm-inventory-patch_baselines", "ssm-inventory-patch_groups", "ssm-inventory-associations", "ssm-inventory-command_invocations", "ssm-inventory-commands", "ssm-inventory-documents", "ssm-inventory-activations", "ssm-inventory-automation_executions", "ssm-inventory-available_patches"]
+  rules ["ssm-inventory-associations", "ssm-inventory-command_invocations", "ssm-inventory-commands", "ssm-inventory-activations", "ssm-inventory-automation_executions", "ssm-inventory-available_patches", "ssm-inventory-maintenance_windows", "ssm-inventory-parameters", "ssm-inventory-patch_baselines", "ssm-inventory-patch_groups"]
 end
 coreo_aws_rule "servicecatalog-inventory-accepted_portfolio_shares" do
   service :ServiceCatalog
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ServiceCatalog Inventory"
@@ -6066,6 +5148,7 @@ coreo_aws_rule "servicecatalog-inventory-accepted_portfolio_shares" do
 end
 coreo_aws_rule "servicecatalog-inventory-portfolios" do
   service :ServiceCatalog
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "ServiceCatalog Inventory"
@@ -6087,6 +5170,7 @@ coreo_aws_rule_runner "servicecatalog-inventory-runner" do
 end
 coreo_aws_rule "shield-inventory-attacks" do
   service :Shield
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Shield Inventory"
@@ -6106,29 +5190,15 @@ coreo_aws_rule_runner "shield-inventory-runner" do
   service :Shield
   rules ["shield-inventory-attacks"]
 end
-coreo_aws_rule "simpledb-inventory-domains" do
-  service :SimpleDB
-  link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
-  include_violations_in_count false
-  display_name "SimpleDB Inventory"
-  description "This rule performs an inventory on the SimpleDB service using the list_domains function"
-  category "Inventory"
-  suggested_action "None."
-  level "Informational"
-  objectives ["list_domains"]
-  audit_objects ["NA"]
-  operators ["=~"]
-  raise_when [//]
-  id_map ["NA"]
-end
 
 coreo_aws_rule_runner "simpledb-inventory-runner" do
   action :run
   service :SimpleDB
-  rules ["simpledb-inventory-domains"]
+  rules []
 end
 coreo_aws_rule "snowball-inventory-jobs" do
   service :Snowball
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Snowball Inventory"
@@ -6144,6 +5214,7 @@ coreo_aws_rule "snowball-inventory-jobs" do
 end
 coreo_aws_rule "snowball-inventory-addresses" do
   service :Snowball
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Snowball Inventory"
@@ -6159,6 +5230,7 @@ coreo_aws_rule "snowball-inventory-addresses" do
 end
 coreo_aws_rule "snowball-inventory-clusters" do
   service :Snowball
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "Snowball Inventory"
@@ -6180,6 +5252,7 @@ coreo_aws_rule_runner "snowball-inventory-runner" do
 end
 coreo_aws_rule "states-inventory-activities" do
   service :States
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "States Inventory"
@@ -6195,6 +5268,7 @@ coreo_aws_rule "states-inventory-activities" do
 end
 coreo_aws_rule "states-inventory-state_machines" do
   service :States
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "States Inventory"
@@ -6216,6 +5290,7 @@ coreo_aws_rule_runner "states-inventory-runner" do
 end
 coreo_aws_rule "storagegateway-inventory-tape_archives" do
   service :StorageGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "StorageGateway Inventory"
@@ -6231,6 +5306,7 @@ coreo_aws_rule "storagegateway-inventory-tape_archives" do
 end
 coreo_aws_rule "storagegateway-inventory-file_shares" do
   service :StorageGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "StorageGateway Inventory"
@@ -6246,6 +5322,7 @@ coreo_aws_rule "storagegateway-inventory-file_shares" do
 end
 coreo_aws_rule "storagegateway-inventory-gateways" do
   service :StorageGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "StorageGateway Inventory"
@@ -6261,6 +5338,7 @@ coreo_aws_rule "storagegateway-inventory-gateways" do
 end
 coreo_aws_rule "storagegateway-inventory-tapes" do
   service :StorageGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "StorageGateway Inventory"
@@ -6276,6 +5354,7 @@ coreo_aws_rule "storagegateway-inventory-tapes" do
 end
 coreo_aws_rule "storagegateway-inventory-volumes" do
   service :StorageGateway
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "StorageGateway Inventory"
@@ -6297,6 +5376,7 @@ coreo_aws_rule_runner "storagegateway-inventory-runner" do
 end
 coreo_aws_rule "waf-inventory-rules" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6312,6 +5392,7 @@ coreo_aws_rule "waf-inventory-rules" do
 end
 coreo_aws_rule "waf-inventory-byte_match_sets" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6327,6 +5408,7 @@ coreo_aws_rule "waf-inventory-byte_match_sets" do
 end
 coreo_aws_rule "waf-inventory-ip_sets" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6342,6 +5424,7 @@ coreo_aws_rule "waf-inventory-ip_sets" do
 end
 coreo_aws_rule "waf-inventory-size_constraint_sets" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6357,6 +5440,7 @@ coreo_aws_rule "waf-inventory-size_constraint_sets" do
 end
 coreo_aws_rule "waf-inventory-sql_injection_match_sets" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6372,6 +5456,7 @@ coreo_aws_rule "waf-inventory-sql_injection_match_sets" do
 end
 coreo_aws_rule "waf-inventory-web_acls" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6387,6 +5472,7 @@ coreo_aws_rule "waf-inventory-web_acls" do
 end
 coreo_aws_rule "waf-inventory-xss_match_sets" do
   service :WAF
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAF Inventory"
@@ -6408,6 +5494,7 @@ coreo_aws_rule_runner "waf-inventory-runner" do
 end
 coreo_aws_rule "wafregional-inventory-rules" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6423,6 +5510,7 @@ coreo_aws_rule "wafregional-inventory-rules" do
 end
 coreo_aws_rule "wafregional-inventory-byte_match_sets" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6438,6 +5526,7 @@ coreo_aws_rule "wafregional-inventory-byte_match_sets" do
 end
 coreo_aws_rule "wafregional-inventory-ip_sets" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6453,6 +5542,7 @@ coreo_aws_rule "wafregional-inventory-ip_sets" do
 end
 coreo_aws_rule "wafregional-inventory-size_constraint_sets" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6468,6 +5558,7 @@ coreo_aws_rule "wafregional-inventory-size_constraint_sets" do
 end
 coreo_aws_rule "wafregional-inventory-sql_injection_match_sets" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6483,6 +5574,7 @@ coreo_aws_rule "wafregional-inventory-sql_injection_match_sets" do
 end
 coreo_aws_rule "wafregional-inventory-web_acls" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6498,6 +5590,7 @@ coreo_aws_rule "wafregional-inventory-web_acls" do
 end
 coreo_aws_rule "wafregional-inventory-xss_match_sets" do
   service :WAFRegional
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WAFRegional Inventory"
@@ -6519,6 +5612,7 @@ coreo_aws_rule_runner "wafregional-inventory-runner" do
 end
 coreo_aws_rule "workspaces-inventory-workspace_bundles" do
   service :WorkSpaces
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WorkSpaces Inventory"
@@ -6534,6 +5628,7 @@ coreo_aws_rule "workspaces-inventory-workspace_bundles" do
 end
 coreo_aws_rule "workspaces-inventory-workspace_directories" do
   service :WorkSpaces
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WorkSpaces Inventory"
@@ -6549,6 +5644,7 @@ coreo_aws_rule "workspaces-inventory-workspace_directories" do
 end
 coreo_aws_rule "workspaces-inventory-workspaces" do
   service :WorkSpaces
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WorkSpaces Inventory"
@@ -6564,6 +5660,7 @@ coreo_aws_rule "workspaces-inventory-workspaces" do
 end
 coreo_aws_rule "workspaces-inventory-workspaces_connection_status" do
   service :WorkSpaces
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "WorkSpaces Inventory"

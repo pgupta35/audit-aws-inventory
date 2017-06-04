@@ -94,6 +94,7 @@ end
     puts <<-EOH
 coreo_aws_rule "#{rule_name}" do
   service :#{service}
+  action :define
   link "http://kb.cloudcoreo.com/mydoc_all-inventory.html"
   include_violations_in_count false
   display_name "#{sClass} Inventory"
