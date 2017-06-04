@@ -7,7 +7,7 @@ require 'yaml'
 @yaml_doc = { 'variables' => {} }
 
 def get_regions
-  @ec2_regions =  Aws::EC2::Client.new.describe_regions().regions.collect { |x| x.region_name }.sort
+  @ec2_regions = Aws::EC2::Client.new.describe_regions().regions.collect { |x| x.region_name }.sort
   return @ec2_regions
 end
 
@@ -20,6 +20,7 @@ def addVariableToYaml(name, description=nil, required=nil, type=nil, default=nil
   @yaml_doc['variables'][name]['default'] = default unless default.nil?
 
 end
+
 addVariableToYaml('AUDIT_AWS_INVENTORY_ALERT_RECIPIENT',
                   "Enter the email address(es) that will receive notifications. If more than one, separate each with a comma.",
                   false,
@@ -76,12 +77,7 @@ def get_id_from_possibilities(possible_ids)
   sorted_possibilities = found_possibilities.sort_by { |x| x.count('.') }
   search.each { |s|
     sorted_possibilities.each { |pid|
-      if pid =~ s
-        puts "foudn it"
-        return pid.gsub('[0]','')
-      else
-        puts "nope"
-      end
+      return pid.gsub('[0]', '') if pid =~ s
     }
   }
   return "NA"
@@ -105,7 +101,6 @@ end
 
 Aws.partition('aws').services.each do |s|
   writeLine "# #{s.name}"
-  next unless s.name.eql?("CodeBuild")
   begin
     aws_client = eval("Aws::#{s.name}::Client.new")
   rescue Exception => e
@@ -120,7 +115,6 @@ Aws.partition('aws').services.each do |s|
   ## if it doesnt require and argument, it is an inventory method
   relevant_methods.each { |r|
     begin
-      sleep 1
       aws_client.send(r.to_sym, {})
       ## now check if we have a proper @id_map
       if !@id_map[aws_client.class.to_s.split('::')[1].to_sym] || !@id_map[aws_client.class.to_s.split('::')[1].to_sym][r.to_sym]
