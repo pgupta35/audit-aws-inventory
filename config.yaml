@@ -43,9 +43,11 @@ variables:
     - us-east-2
     - us-west-1
     - us-west-2
-  AUDIT_AWS_ACM_ALERT_LIST:
-    description: Which rules would you like to run? Possible values are acm-inventory-certificates
+  AUDIT_AWS_CODEBUILD_ALERT_LIST:
+    description: Which rules would you like to run? Possible values are codebuild-inventory-builds,codebuild-inventory-curated_environment_images,codebuild-inventory-projects
     required: false
     type: array
     default:
-    - acm-inventory-certificates
+    - codebuild-inventory-builds
+    - codebuild-inventory-curated_environment_images
+    - codebuild-inventory-projects

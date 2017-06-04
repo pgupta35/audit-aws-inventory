@@ -62,12 +62,12 @@ def compose_line(e)
 end
 
 def get_id_from_possibilities(possible_ids)
-  search = [/arn\b/, /\.id/, /_id\b/, /_name\b/, /\[\0\]\b/]
+  search = [/arn\b/, /\.id/, /_id\b/, /_name\b/, /\[0\]/]
   found_possibilities = []
   search.each { |s|
     possible_ids.each { |pid|
       if pid =~ s
-        id = pid.gsub('[0]', '').gsub('resp.', '')
+        id = pid.gsub('resp.', '')
         found_possibilities.push(id)
       end
     }
@@ -77,10 +77,14 @@ def get_id_from_possibilities(possible_ids)
   search.each { |s|
     sorted_possibilities.each { |pid|
       if pid =~ s
-        return pid
+        puts "foudn it"
+        return pid.gsub('[0]','')
+      else
+        puts "nope"
       end
     }
   }
+  return "NA"
 end
 
 def getEntryFromHtml(service, method)
@@ -101,7 +105,7 @@ end
 
 Aws.partition('aws').services.each do |s|
   writeLine "# #{s.name}"
-  #next unless s.name.eql?("EC2")
+  next unless s.name.eql?("CodeBuild")
   begin
     aws_client = eval("Aws::#{s.name}::Client.new")
   rescue Exception => e
@@ -136,7 +140,6 @@ Aws.partition('aws').services.each do |s|
       #writeLine "    method #{r} requires args"
     end
   }
-  break
 end
 
 @id_map.each_pair { |s, inv_hash|
