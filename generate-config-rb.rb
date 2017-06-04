@@ -3,6 +3,12 @@ require 'aws-sdk'
 require 'nokogiri'
 require 'open-uri'
 
+def writeLine(line)
+  open('./services/config.rb', 'a') { |f|
+    f.puts line
+  }
+end
+
 def compose_line(e)
   composition = []
   while e.next_element
@@ -15,16 +21,24 @@ end
 
 def get_id_from_possibilities(possible_ids)
   search = [/arn\b/, /\.id/, /_id\b/, /_name\b/, /\[\0\]\b/]
-  search.each {|s|
-    possible_ids.each {|pid|
+  found_possibilities = []
+  search.each { |s|
+    possible_ids.each { |pid|
       if pid =~ s
         id = pid.gsub('[0]', '').gsub('resp.', '')
-        puts "    - id: #{id}"
-        return id
+        found_possibilities.push(id)
       end
     }
   }
-  return "NA"
+  return "NA" if found_possibilities.size.eql?(0)
+  sorted_possibilities = found_possibilities.sort_by{ | x| x.count('.') }
+  search.each { |s|
+    sorted_possibilities.each { |pid|
+      if pid =~ s
+        return pid
+      end
+    }
+  }
 end
 
 def getEntryFromHtml(service, method)
@@ -35,7 +49,7 @@ def getEntryFromHtml(service, method)
   example_doc = tag_doc.css('pre[class="example code"]').last
   example_doc_details = example_doc.css('span[class="id identifier rubyid_resp"]')
   possible_ids = []
-  example_doc_details.each {|e|
+  example_doc_details.each { |e|
     possible_ids.push(compose_line(e))
   }
   return get_id_from_possibilities(possible_ids)
@@ -44,21 +58,21 @@ end
 @id_map = {}
 
 Aws.partition('aws').services.each do |s|
-  puts s.name
+  writeLine "# #{s.name}"
   #next unless s.name.eql?("EC2")
   begin
     aws_client = eval("Aws::#{s.name}::Client.new")
   rescue Exception => e
-    #puts "No Aws V2 Client found matching service #{s.name}" if aws_client.nil?    
+    #writeLine "No Aws V2 Client found matching service #{s.name}" if aws_client.nil?
     next
   end
 
-  relevant_methods = aws_client.methods.collect {|method| method if method =~ /(get|describe|list)/}.compact.reject {|method| method.empty? || method =~ /tags/ || method !~ /s$/}
+  relevant_methods = aws_client.methods.collect { |method| method if method =~ /(get|describe|list)/ }.compact.reject { |method| method.empty? || method =~ /tags/ || method !~ /s$/ }
   ## we have a client
 
 
   ## if it doesnt require and argument, it is an inventory method
-  relevant_methods.each {|r|
+  relevant_methods.each { |r|
     begin
       sleep 1
       aws_client.send(r.to_sym, {})
@@ -70,28 +84,29 @@ Aws.partition('aws').services.each do |s|
           @id_map[aws_client.class.to_s.split('::')[1].to_sym][:methods] = {}
         end
         @id_map[aws_client.class.to_s.split('::')[1].to_sym][:methods][r.to_sym] = id
+        writeLine "#   - #{r}"
+        writeLine "#     - id: #{id}"
       end
       ## client per service
       @id_map[aws_client.class.to_s.split('::')[1].to_sym][:client] = aws_client if !@id_map[aws_client.class.to_s.split('::')[1].to_sym][:client]
-      puts "  - #{r}"
     rescue Exception => e
       #raise "missing -> { :#{aws_client.class.to_s.split('::')[1]} => { :#{r} => \"#{id}\" }" if e.message.eql?("missing ID map")
-      #puts "    method #{r} requires args"
+      #writeLine "    method #{r} requires args"
     end
   }
 end
 
-@id_map.each_pair {|s, inv_hash|
+@id_map.each_pair { |s, inv_hash|
   c = inv_hash[:client]
   service = s.to_s
   sClass = c.class.to_s.split('::')[1]
   service_rules = []
-  inv_hash[:methods].each_pair {|method, id|
+  inv_hash[:methods].each_pair { |method, id|
     next if id.eql?("NA")
     m = method.to_s
-    rule_name = "#{service.downcase}-inventory-#{m.downcase.gsub('list_', '').gsub('describe_', '').gsub('get_', '').gsub('-','_')}"
+    rule_name = "#{service.downcase}-inventory-#{m.downcase.gsub('list_', '').gsub('describe_', '').gsub('get_', '').gsub('-', '_')}"
     service_rules.push(rule_name)
-    puts <<-EOH
+    writeLine <<-EOH
 coreo_aws_rule "#{rule_name}" do
   service :#{service}
   action :define
@@ -103,14 +118,14 @@ coreo_aws_rule "#{rule_name}" do
   suggested_action "None."
   level "Informational"
   objectives ["#{m}"]
-  audit_objects ["#{id}"]
+  audit_objects ["object.#{id}"]
   operators ["=~"]
   raise_when [//]
-  id_map ["#{id}"]
+  id_map ["object.#{id}"]
 end
     EOH
   }
-  puts <<-EOH
+  writeLine <<-EOH
 
 coreo_aws_rule_runner "#{service.downcase}-inventory-runner" do
   action :run
