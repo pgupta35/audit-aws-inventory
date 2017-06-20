@@ -149,10 +149,7 @@ coreo_uni_util_jsrunner "splice-violation-object" do
    "violations": COMPOSITE::coreo_aws_rule_runner.advise-rds.report },
   "redshift": {
    "audit name": "REDSHIFT",
-   "violations": COMPOSITE::coreo_aws_rule_runner.advise-redshift.report },
-  "s3": {
-   "audit name": "S3",
-   "violations": COMPOSITE::coreo_aws_rule_runner.advise-s3.report }
+   "violations": COMPOSITE::coreo_aws_rule_runner.advise-redshift.report }
   }}'
   function <<-EOH
     const wayToServices = json_input['services'];
@@ -227,7 +224,6 @@ let rdsAlertListToJSON = "${AUDIT_AWS_RDS_ALERT_LIST}";
 let iamAlertListToJSON = "${AUDIT_AWS_IAM_ALERT_LIST}";
 let elbAlertListToJSON = "${AUDIT_AWS_ELB_ALERT_LIST}";
 let ec2AlertListToJSON = "${AUDIT_AWS_EC2_ALERT_LIST}";
-let s3AlertListToJSON = "${AUDIT_AWS_S3_ALERT_LIST}";
 let cloudwatchAlertListToJSON = "${AUDIT_AWS_CLOUDWATCH_ALERT_LIST}";
 let kmsAlertListToJSON = "${AUDIT_AWS_KMS_ALERT_LIST}";
 let snsAlertListToJSON = "${AUDIT_AWS_SNS_ALERT_LIST}";
@@ -238,7 +234,6 @@ alertListMap.add(rdsAlertListToJSON.replace(/'/g, '"'));
 alertListMap.add(iamAlertListToJSON.replace(/'/g, '"'));
 alertListMap.add(elbAlertListToJSON.replace(/'/g, '"'));
 alertListMap.add(ec2AlertListToJSON.replace(/'/g, '"'));
-alertListMap.add(s3AlertListToJSON.replace(/'/g, '"'));
 alertListMap.add(cloudwatchAlertListToJSON.replace(/'/g, '"'));
 alertListMap.add(kmsAlertListToJSON.replace(/'/g, '"'));
 alertListMap.add(snsAlertListToJSON.replace(/'/g, '"'));
