@@ -100,6 +100,18 @@ end
 
 # cloudwatch end
 
+coreo_uni_util_jsrunner "tags-rollup-cloudwatchlogs" do
+  action :nothing
+end
+coreo_uni_util_notify "advise-cloudwatchlogs-to-tag-values" do
+  action :nothing
+end
+coreo_uni_util_notify "advise-cloudwatchlogs-rollup" do
+  action :nothing
+end
+
+# cloudwatchlogs end
+
 coreo_uni_util_notify "advise-kms-to-tag-values" do
   action :nothing
 end
