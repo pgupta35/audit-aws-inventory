@@ -77,6 +77,10 @@ This composite scans AWS services and reports on the inventory of objects found
   * description: Which rules would you like to run? Possible values are redshift-inventory redshift-publicly-accessible redshift-encrypted redshift-no-version-upgrade redshift-no-require-ssl redshift-no-s3-logging redshift-no-user-logging redshift-snapshot-retention
   * default: redshift-inventory
 
+### `AUDIT_AWS_S3_ALERT_LIST`:
+  * description: Which rules would you like to run? Possible values are s3-allusers-write s3-allusers-write-acp s3-allusers-read s3-authenticatedusers-write s3-authenticatedusers-write-acp s3-authenticatedusers-read s3-logging-disabled s3-world-open-policy-delete s3-world-open-policy-get s3-world-open-policy-list s3-world-open-policy-put s3-world-open-policy-all s3-only-ip-based-policy
+  * default: s3-inventory
+
 ### `AUDIT_AWS_SNS_ALERT_LIST`:
   * description: Which rules would you like to run? Possible values are sns-topics-inventory sns-subscriptions-inventory
   * default: sns-topics-inventory, sns-subscriptions-inventory
@@ -86,9 +90,6 @@ This composite scans AWS services and reports on the inventory of objects found
 
 ### `AUDIT_AWS_INVENTORY_ALERT_RECIPIENT`:
   * description: Enter the email address(es) that will receive notifications. If more than one, separate each with a comma.
-
-### `AUDIT_AWS_S3_ALERT_LIST`:
-  * description: Which rules would you like to run? Possible values are s3-allusers-write s3-allusers-write-acp s3-allusers-read s3-authenticatedusers-write s3-authenticatedusers-write-acp s3-authenticatedusers-read s3-logging-disabled s3-world-open-policy-delete s3-world-open-policy-get s3-world-open-policy-list s3-world-open-policy-put s3-world-open-policy-all s3-only-ip-based-policy
 
 ## Tags
 1. Inventory
