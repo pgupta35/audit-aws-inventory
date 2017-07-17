@@ -88,6 +88,9 @@ This composite scans AWS services and reports on the inventory of objects found
 
 ## Optional variables with no default
 
+### `HTML_REPORT_SUBJECT`:
+  * description: Enter a custom report subject name.
+
 ### `AUDIT_AWS_INVENTORY_ALERT_RECIPIENT`:
   * description: Enter the email address(es) that will receive notifications. If more than one, separate each with a comma.
 
