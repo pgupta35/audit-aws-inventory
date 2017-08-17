@@ -211,7 +211,7 @@ coreo_uni_util_jsrunner "tags-to-notifiers-array-aws" do
   packages([
                {
                    :name => "cloudcoreo-jsrunner-commons",
-                   :version => "1.10.7-beta63"
+                   :version => "1.10.7-beta64"
                },
                {
                    :name => "js-yaml",
@@ -394,5 +394,47 @@ COMPOSITE::coreo_uni_util_jsrunner.tags-rollup-aws.return
   payload_type 'text'
   endpoint ({
       :to => '${AUDIT_AWS_INVENTORY_ALERT_RECIPIENT}', :subject => 'CloudCoreo aws rule results on PLAN::stack_name :: PLAN::name'
+  })
+end
+
+coreo_aws_s3_policy "cloudcoreo-audit-aws-inventory-policy" do
+  action((("${S3_BUCKET_NAME}".length > 0) ) ? :create : :nothing)
+  policy_document <<-EOF
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "",
+"Effect": "Allow",
+"Principal":
+{ "AWS": "*" }
+,
+"Action": "s3:*",
+"Resource": [
+"arn:aws:s3:::${S3_BUCKET_NAME}/*",
+"arn:aws:s3:::${S3_BUCKET_NAME}"
+]
+}
+]
+}
+  EOF
+end
+
+coreo_aws_s3_bucket "cloudcoreo-audit-aws-inventory" do
+  action :create
+  bucket_policies ["cloudcoreo-audit-aws-inventory-policy"]
+  region "us-east-1"
+end
+
+coreo_uni_util_notify "cloudcoreo-audit-aws-inventory-s3" do
+  action((("${S3_BUCKET_NAME}".length > 0) ) ? :notify : :nothing)
+  type 's3'
+  allow_empty true
+  payload 'COMPOSITE::coreo_uni_util_jsrunner.tags-to-notifiers-array-aws.report'
+  endpoint ({
+      object_name: 'aws-inventory-json',
+      bucket_name: '${S3_BUCKET_NAME}',
+      folder: 'inventory/PLAN::name',
+      properties: {}
   })
 end
