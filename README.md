@@ -94,7 +94,7 @@ This composite scans AWS services and reports on the inventory of objects found
 ### `AUDIT_AWS_INVENTORY_ALERT_RECIPIENT`:
   * description: Enter the email address(es) that will receive notifications. If more than one, separate each with a comma.
 
-### `S3_BUCKET_NAME`:
+### `AUDIT_AWS_INVENTORY_S3_NOTIFICATION_BUCKET_NAME`:
   * description: Enter S3 bucket name to upload reports. (Optional)
 
 ## Tags
