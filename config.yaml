@@ -181,7 +181,7 @@ variables:
       - sns-topics-inventory # not_violation
       - sns-subscriptions-inventory # not_violation
     description: "Which rules would you like to run? Possible values are sns-topics-inventory sns-subscriptions-inventory"
-  S3_BUCKET_NAME:
+  AUDIT_AWS_INVENTORY_S3_NOTIFICATION_BUCKET_NAME:
     required: false
     type: string
     default:
