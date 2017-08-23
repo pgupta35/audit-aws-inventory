@@ -106,67 +106,67 @@ variables:
     required: false
     type: array
     default:
-      - cloudtrail-inventory # not_violation 
+      - cloudtrail-inventory # not_violation
     description: "Which rules would you like to run? Possible values are cloudtrail-inventory cloudtrail-service-disabled cloudtrail-log-file-validating cloudtrail-logs-cloudwatch cloudtrail-no-global-trails cloudtrail-logs-encrypted"
   AUDIT_AWS_CLOUDWATCH_ALERT_LIST:
     required: false
     type: array
     default:
-      - cloudwatch-inventory # not_violation 
+      - cloudwatch-inventory # not_violation
     description: "Which rules would you like to run? Possible values are cloudwatch-inventory"
   AUDIT_AWS_CLOUDWATCHLOGS_ALERT_LIST:
     required: false
     type: array
     default:
-      - cloudwatchlogs-inventory # not_violation 
+      - cloudwatchlogs-inventory # not_violation
     description: "Which rules would you like to run? Possible values are cloudwatchlogs-inventory"
   AUDIT_AWS_CONFIG_ALERT_LIST:
     required: false
     type: array
     default:
-      - config-inventory # not_violation 
+      - config-inventory # not_violation
     description: "Which rules would you like to run? Possible values are config-inventory config-enabled-rule"
   AUDIT_AWS_EC2_ALERT_LIST:
     required: false
     type: array
     default:
-      - ec2-inventory-instances # not_violation 
-      - ec2-inventory-security-groups # not_violation 
-      - vpc-inventory # not_violation 
-      - flow-logs-inventory # not_violation 
+      - ec2-inventory-instances # not_violation
+      - ec2-inventory-security-groups # not_violation
+      - vpc-inventory # not_violation
+      - flow-logs-inventory # not_violation
     description: "Which rules would you like to run? Possible values are ec2-inventory-instances ec2-inventory-security-groups ec2-ip-address-whitelisted ec2-unrestricted-traffic ec2-TCP-1521-0.0.0.0/0 ec2-TCP-3306-0.0.0.0/0 ec2-TCP-5432-0.0.0.0/0 ec2-TCP-27017-0.0.0.0/0 ec2-TCP-1433-0.0.0.0/0 ec2-TCP-3389-0.0.0.0/0 ec2-TCP-22-0.0.0.0/0 ec2-TCP-5439-0.0.0.0/0 ec2-TCP-23 ec2-TCP-21 ec2-TCP-20 ec2-ports-range ec2-not-used-security-groups ec2-default-security-group-traffic ec2-vpc-flow-logs"
   AUDIT_AWS_ELB_ALERT_LIST:
     required: false
     type: array
     default:
-      - elb-inventory # not_violation 
+      - elb-inventory # not_violation
     description: "Which rules would you like to run? Possible values are elb-inventory elb-old-ssl-policy elb-current-ssl-policy"
   AUDIT_AWS_IAM_ALERT_LIST:
     required: false
     type: array
     default:
-      - iam-inventory-users # not_violation 
-      - iam-inventory-roles # not_violation 
-      - iam-inventory-policies # not_violation 
-      - iam-inventory-groups # not_violation 
+      - iam-inventory-users # not_violation
+      - iam-inventory-roles # not_violation
+      - iam-inventory-policies # not_violation
+      - iam-inventory-groups # not_violation
     description: "Which rules would you like to run? Possible values are iam-inventory-users iam-inventory-roles iam-inventory-policies iam-inventory-groups iam-unusediamgroup iam-multiple-keys iam-root-multiple-keys iam-inactive-key-no-rotation iam-active-key-no-rotation iam-missing-password-policy iam-passwordreuseprevention iam-expirepasswords iam-no-mfa iam-root-active-password iam-user-attached-policies iam-password-policy-uppercase iam-password-policy-lowercase iam-password-policy-symbol iam-password-policy-number iam-password-policy-min-length iam-root-access-key-1 iam-root-access-key-2 iam-cloudbleed-passwords-not-rotated iam-support-role iam-user-password-not-used iam-unused-access iam-no-hardware-mfa-root iam-active-root-user iam-mfa-password-holders manual-ensure-security-questions manual-detailed-billing iam-root-key-access iam-root-no-mfa manual-strategic-iam-roles iam-initialization-access-key manual-contact-details manual-security-contact manual-resource-instance-access manual-full-privilege-user manual-appropriate-sns-subscribers manual-least-access-routing-tables"
   AUDIT_AWS_KMS_ALERT_LIST:
     required: false
     type: array
     default:
-      - kms-inventory # not_violation 
+      - kms-inventory # not_violation
     description: "Which rules would you like to run? Possible values are kms-inventory kms-key-rotates"
   AUDIT_AWS_RDS_ALERT_LIST:
     required: false
     type: array
     default:
-      - rds-inventory # not_violation 
+      - rds-inventory # not_violation
     description: "Which rules would you like to run? Possible values are rds-inventory rds-short-backup-retention-period rds-no-auto-minor-version-upgrade rds-db-publicly-accessible"
   AUDIT_AWS_REDSHIFT_ALERT_LIST:
     required: false
     type: array
     default:
-      - redshift-inventory # not_violation 
+      - redshift-inventory # not_violation
     description: "Which rules would you like to run? Possible values are redshift-inventory redshift-publicly-accessible redshift-encrypted redshift-no-version-upgrade redshift-no-require-ssl redshift-no-s3-logging redshift-no-user-logging redshift-snapshot-retention"
   AUDIT_AWS_S3_ALERT_LIST:
     required: false
@@ -178,7 +178,11 @@ variables:
     required: false
     type: array
     default:
-      - sns-topics-inventory # not_violation 
-      - sns-subscriptions-inventory # not_violation 
+      - sns-topics-inventory # not_violation
+      - sns-subscriptions-inventory # not_violation
     description: "Which rules would you like to run? Possible values are sns-topics-inventory sns-subscriptions-inventory"
-
+  AUDIT_AWS_INVENTORY_S3_NOTIFICATION_BUCKET_NAME:
+    required: false
+    type: string
+    default:
+    description: "Enter S3 bucket name to upload reports. (Optional)"
