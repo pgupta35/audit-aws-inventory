@@ -432,7 +432,7 @@ coreo_uni_util_notify "cloudcoreo-audit-aws-inventory-s3" do
   payload 'COMPOSITE::coreo_uni_util_jsrunner.tags-to-notifiers-array-aws.report'
   endpoint ({
       object_name: 'aws-inventory-json',
-      bucket_name: '${AUDIT_AWS_INVENTORY_S3_NOTIFICATION_BUCKET_NAME}',
+      bucket_name: 'bucket-${AUDIT_AWS_INVENTORY_S3_NOTIFICATION_BUCKET_NAME}',
       folder: 'inventory/PLAN::name',
       properties: {}
   })
