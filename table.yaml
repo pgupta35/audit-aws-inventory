@@ -13,7 +13,7 @@ cloudtrail-log-file-validating:
  "ARN": "+__OBJECT__.violator_info.trail_arn+#"
  "Region": "+__OBJECT__.violations.__RULE__.region+~https://console.aws.amazon.com/cloudtrail/home?region=+__OBJECT__.violations.__RULE__.region+#"
 cloudtrail-logs-encrypted:
- "Trail Name": "__OBJECT__~https://+__OBJECT__.violations.__RULE__.region+.console.aws.amazon.com/cloudtrail/home?region=+__OBJECT__.violations.__RULE__.region+#/configuration/+__OBJECT__.violator_info.0.object.trail_arn+"
+ "Trail Name": "__OBJECT__~https://+__OBJECT__.violations.__RULE__.region+.console.aws.amazon.com/cloudtrail/home?region=+__OBJECT__.violations.__RULE__.region+#/configuration/+__OBJECT__.violator_info.trail_arn+"
  "AWS Region": "+__OBJECT__.violations.__RULE__.region+"
 cloudwatch-inventory:
   "AWS Cloud Object Name": "__OBJECT__~https://console.aws.amazon.com/cloudwatch/home?region=+__OBJECT__.violations.__RULE__.region+#alarm:alarmFilter=ANY;name=__OBJECT__"
@@ -213,7 +213,7 @@ iam-cloudbleed-passwords-not-rotated:
 iam-mfa-password-holders:
   "Password Policy": "__OBJECT__~https://us-east-1.console.aws.amazon.com/iam/home?region=+__OBJECT__.violations.__RULE__.region+#/credential_report"
 iam-unused-access:
-  "Password Policy": "__OBJECT__~https://us-east-1.console.aws.amazon.com/iam/home?region=+__OBJECT__.violations.__RULE__.region+#/credential_report"   
+  "Password Policy": "__OBJECT__~https://us-east-1.console.aws.amazon.com/iam/home?region=+__OBJECT__.violations.__RULE__.region+#/credential_report"
 iam-initialization-access-key:
   "Password Policy": "__OBJECT__~https://us-east-1.console.aws.amazon.com/iam/home?region=+__OBJECT__.violations.__RULE__.region+#/credential_report"
 kms-inventory:
